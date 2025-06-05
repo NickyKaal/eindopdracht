@@ -1,10 +1,11 @@
 import './App.css'
+import LoginPage from "./components/auth/LoginPage.jsx";
 
 function App() {
 
   return (
     <>
-      <h1>Hello world</h1>
+      <LoginPage/>
     </>
   )
 }
