@@ -1,0 +1,8 @@
+.allCaps{
+    text-transform:uppercase;
+}
+
+.contentPanel {
+    background-color: var(--panel-background);
+    border-radius: 20px;
+}

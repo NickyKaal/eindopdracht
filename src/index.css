@@ -1,6 +1,20 @@
 /** global typografie */
 @import url('https://fonts.googleapis.com/css2?family=Kameron:wght@400..700&display=swap');
 
+:root {
+    --primary:#1A2CB8;
+    --secondary:#E8FE4E;
+    --panel-background:#131313;
+    --divider:#CBBCA6;
+    --background:black;
+    --input-background:#252527;
+    --focused:#FAFAFB;
+    --unfocused:#878787;
+
+    background-color: var(--background);
+    color:var(--focused);
+}
+
 html {
     font-size:12px;
     font-family: "Kameron", serif;
