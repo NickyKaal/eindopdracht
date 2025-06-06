@@ -1,0 +1,11 @@
+.content-panel {
+    display:flex;
+    width: 600px;
+    justify-content: center;
+}
+
+.login-form{
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+}

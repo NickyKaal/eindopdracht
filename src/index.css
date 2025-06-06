@@ -35,6 +35,15 @@ html {
     }
 }
 
+input {
+    color:var(--focused);
+    background-color: var(--input-background);
+}
+
+input::placeholder {
+    color: var(--unfocused);
+}
+
 button{
     font-size: 1.5rem;
     font-weight: bold;

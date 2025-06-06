@@ -6,8 +6,12 @@ function LoginPage() {
 
     return (
         <>
-            <NameBanner/>
-            <LoginTile/>
+            <header className="page-header">
+                <NameBanner/>
+            </header>
+            <main className="page-main">
+                <LoginTile/>
+            </main>
         </>
     )
 }

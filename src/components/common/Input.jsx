@@ -1,13 +1,49 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {useState} from 'react';
+import './Input.css';
 
-function Input({register, type, name, label }) {
+import showContentIcon from '../../assets/icons/eye-open.svg'
+import hideContentIcon from '../../assets/icons/eye-closed.svg'
+
+import PropTypes from 'prop-types';
+import Icon from "./Icon.jsx";
+
+// import {state} from '../../scripts/common/icons.js'
+
+function Input({register, type, name, label, placeholder }) {
+
+    let [contentHidden, setContentHidden] = useState( type === "password");
+
+    function handleHideContent(){
+        setContentHidden( !contentHidden);
+        // console.log(state);
+        // state.hidden = !state.hidden
+    }
+
+    const iconDefinitionsMap = new Map();
+    iconDefinitionsMap.set(true, {
+        icon:showContentIcon
+        ,name:"showContentIcon"
+        ,alt:"Show content icon"
+        ,inline:true
+        ,onClick:handleHideContent
+    });
+    iconDefinitionsMap.set(false, {
+        icon:hideContentIcon
+        ,name:"hideContentIcon"
+        ,alt:"Hide content icon"
+        ,inline:true
+        ,onClick:handleHideContent
+    });
+
+    const iconDef = iconDefinitionsMap.get(contentHidden);
+
     return (
-        <label htmlFor={`${name}-field`}>
+        <label className="inputField" htmlFor={`${name}-field`}>
             {label}
             <input
-                type={type}
+                type={type !== "password" ?type:(contentHidden?type:"text")}
                 id={`${name}-field`}
+                placeholder={placeholder}
                 {...register(name, {
                     required: {
                         value: true,
@@ -15,6 +51,7 @@ function Input({register, type, name, label }) {
                     }
                 })}
             />
+            {type === "password" && <Icon {...iconDef}/>}
         </label>
     );
 }

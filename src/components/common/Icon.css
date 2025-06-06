@@ -1,0 +1,22 @@
+.icon-wrapper {
+    display:flex;
+    flex-basis: 28px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.icon-wrapper:hover {
+    cursor: pointer;
+}
+
+.icon-inline {
+    position: absolute;
+
+    /* line-height = 1.5 rem, so 0.5/2 = 0.25 */
+    right:0.25rem;
+    bottom:0.25rem;
+}
+
+.icon-wrapper img{
+    width:28px;
+}
