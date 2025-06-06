@@ -5,20 +5,21 @@ export const state={
     hidden:true
 }
 
-const iconDefinitionsMap = new Map();
-iconDefinitionsMap.set(true, {
+export const hideIcon = new Map();
+hideIcon.set(true, {
     icon:showContentIcon
     ,name:"showContentIcon"
     ,alt:"Show content icon"
     ,inline:true
-    ,onClick:handleHideContent
+    // ,onClick:handleHideContent
 });
-iconDefinitionsMap.set(false, {
+
+hideIcon.set(false, {
     icon:hideContentIcon
     ,name:"hideContentIcon"
     ,alt:"Hide content icon"
     ,inline:true
-    ,onClick:handleHideContent
+    // ,onClick:handleHideContent
 });
 
 

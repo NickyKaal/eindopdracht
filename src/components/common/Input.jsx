@@ -7,7 +7,7 @@ import hideContentIcon from '../../assets/icons/eye-closed.svg'
 import PropTypes from 'prop-types';
 import Icon from "./Icon.jsx";
 
-// import {state} from '../../scripts/common/icons.js'
+import {iconState} from '../../scripts/common/icons.js'
 
 function Input({register, type, name, label, placeholder }) {
 
@@ -15,8 +15,11 @@ function Input({register, type, name, label, placeholder }) {
 
     function handleHideContent(){
         setContentHidden( !contentHidden);
-        // console.log(state);
-        // state.hidden = !state.hidden
+        /* dit werkt niet, terwijl de iconState wel veranderd
+
+        console.log(iconState);
+        iconState.hidden = !iconState.hidden;
+        */
     }
 
     const iconDefinitionsMap = new Map();
