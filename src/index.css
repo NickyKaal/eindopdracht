@@ -1,0 +1,79 @@
+/** global typografie */
+@import url('https://fonts.googleapis.com/css2?family=Kameron:wght@400..700&display=swap');
+
+:root {
+    --panel-background:#131313;
+    --divider:#CBBCA6;
+    --background:black;
+    --input-background:#252527;
+    --focused:#FAFAFB;
+    --unfocused:#878787;
+
+    /*pallet 1*/
+    --primary:#1A2CB8;
+    --secondary:#E8FE4E;
+    --highlight: orange;
+
+    /*pallet 2*/
+    /*--primary:#449EA9;*/
+    /*--secondary:#F8D845;*/
+    /*--highlight:#EA893A;*/
+
+    background-color: var(--background);
+    color:var(--focused);
+}
+
+html {
+    font-size:12px;
+    font-family: "Kameron", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+input {
+    color:var(--focused);
+    background-color: var(--input-background);
+}
+
+input::placeholder {
+    color: var(--unfocused);
+}
+
+button{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform:uppercase;
+}
+
+h1{
+    font-size: 2.25rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+h3{
+    font-size: 1.75rem;
+}
+
+h4{
+    font-size: 1.5rem;
+}
+
+h5{
+    font-size: 1.25rem;
+}

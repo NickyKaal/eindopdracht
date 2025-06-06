@@ -1,0 +1,15 @@
+
+.inputField {
+    position:relative;
+
+    display: flex;
+    flex-direction: column;
+    padding: 0.2rem 0;
+}
+
+.inputField input{
+    border: solid 0 transparent;
+    border-radius: 5px;
+
+    padding:0 0 0 0.25rem;
+}

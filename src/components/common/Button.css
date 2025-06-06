@@ -1,0 +1,22 @@
+button{
+    cursor: pointer;
+}
+
+button:hover {
+    color:var(--highlight);
+}
+
+.button-primary {
+    border:none 0 transparent;
+    border-radius: 20px;
+
+    background-color: var(--primary);
+    color: var(--focused);
+}
+
+.button-secondary {
+    border:none 0 transparent;
+    border-radius: 20px;
+    background-color: var(--secondary);
+    color:var(--panel-background);
+}

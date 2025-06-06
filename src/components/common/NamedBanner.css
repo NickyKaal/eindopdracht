@@ -1,0 +1,22 @@
+.nameBanner{
+    padding:5rem 0;
+
+    font-size: 5rem;
+    line-height: 0.7em;
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nameBanner :nth-child(1){
+    color:var(--primary);
+}
+
+.nameBanner :nth-child(2){
+
+}
+
+.nameBanner :nth-child(3){
+    color:var(--secondary);
+}
