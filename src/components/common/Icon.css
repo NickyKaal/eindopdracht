@@ -1,6 +1,6 @@
 .icon-wrapper {
     display:flex;
-    flex-basis: 28px;
+    flex-basis: 24px;
     flex-grow: 0;
     flex-shrink: 0;
 }
@@ -18,5 +18,5 @@
 }
 
 .icon-wrapper img{
-    width:28px;
+    width:24px;
 }

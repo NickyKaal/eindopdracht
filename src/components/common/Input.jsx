@@ -46,7 +46,7 @@ function Input({register, type, name, label, placeholder }) {
                 placeholder={placeholder}
                 {...register(name, {
                     required: {
-                        value: true,
+                        value: false, //TODO: Moet op true staan, nu even op false voor development
                         message: `${name[0].toUpperCase() + name.slice(1).toLowerCase()} is verplicht`,
                     }
                 })}
