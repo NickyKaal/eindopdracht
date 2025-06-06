@@ -4,10 +4,8 @@ import './Input.css';
 import showContentIcon from '../../assets/icons/eye-open.svg'
 import hideContentIcon from '../../assets/icons/eye-closed.svg'
 
-import PropTypes from 'prop-types';
 import Icon from "./Icon.jsx";
 
-import {iconState} from '../../scripts/common/icons.js'
 
 function Input({register, type, name, label, placeholder }) {
 
@@ -15,11 +13,6 @@ function Input({register, type, name, label, placeholder }) {
 
     function handleHideContent(){
         setContentHidden( !contentHidden);
-        /* dit werkt niet, terwijl de iconState wel veranderd
-
-        console.log(iconState);
-        iconState.hidden = !iconState.hidden;
-        */
     }
 
     const iconDefinitionsMap = new Map();
@@ -38,7 +31,7 @@ function Input({register, type, name, label, placeholder }) {
         ,onClick:handleHideContent
     });
 
-    const iconDef = iconDefinitionsMap.get(contentHidden);
+    const hideIcon = iconDefinitionsMap.get(contentHidden);
 
     return (
         <label className="inputField" htmlFor={`${name}-field`}>
@@ -49,12 +42,12 @@ function Input({register, type, name, label, placeholder }) {
                 placeholder={placeholder}
                 {...register(name, {
                     required: {
-                        value: false, //TODO: Moet op true staan, nu even op false voor development
+                        value: false,
                         message: `${name[0].toUpperCase() + name.slice(1).toLowerCase()} is verplicht`,
                     }
                 })}
             />
-            {type === "password" && <Icon {...iconDef}/>}
+            {type === "password" && <Icon {...hideIcon}/>}
         </label>
     );
 }

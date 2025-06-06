@@ -20,3 +20,7 @@ button:hover {
     background-color: var(--secondary);
     color:var(--panel-background);
 }
+
+.buttonSizeMedium{
+    flex-basis: 200px;
+}
