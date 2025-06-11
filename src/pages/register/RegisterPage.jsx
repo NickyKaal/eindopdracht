@@ -1,8 +1,8 @@
 import './RegisterPage.css'
-import NameBanner from "../components/common/NameBanner.jsx";
-import RegisterTile from "../components/auth/RegisterTile.jsx";
+import NameBanner from "../../components/common/NameBanner.jsx";
+import RegisterTile from "../../components/auth/RegisterTile.jsx";
 
-function RegisterPage() {
+function RegisterPage({authenticateCB}) {
 
     return (
         <>
@@ -10,7 +10,7 @@ function RegisterPage() {
                 <NameBanner/>
             </header>
             <main className="page-main">
-                <RegisterTile/>
+                <RegisterTile authenticateCB={authenticateCB}/>
             </main>
         </>
     )

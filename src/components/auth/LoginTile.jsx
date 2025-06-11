@@ -4,30 +4,38 @@ import "./LoginTile.css";
 import Input from "../common/inputs/Input.jsx";
 import {useForm} from "react-hook-form";
 import Button from "../common/buttons/Button.jsx";
+import {useNavigate} from "react-router-dom";
 
-function LoginTile() {
+function LoginTile({authenticateCB}) {
     const {register, handleSubmit, formState: {errors}} = useForm();
+
+    const navigate = useNavigate();
 
     function handleFormSubmit(data, e) {
         console.log(e.target.value);
         console.log(e.target.id);
 
         console.log(data);
+
+        console.log("Do dummy login");
+        authenticateCB(true);
+
+        console.log("Redirecting..");
+        navigate("/home");
     }
 
     return (
         <section className="content-panel">
-            <form className="login-form">
+            <form className="login-form"  onSubmit={handleSubmit(handleFormSubmit)}>
                 <h1 className="allCaps">login</h1>
                 <Input register={register} type="text" label="E-mail address" name="email"
                        placeholder="example@domain.com"/>
                 <Input register={register} type="password" label="Password" name="password"/>
 
                 <div className="button-wrapper">
-                    <Button text="login" type="submit" id="login" value="login" onClick={handleSubmit(handleFormSubmit)}
-                            variant={Button.variants.primary}/>
-                    <Button text="register" type="submit" id="register" value="register"
-                            onClick={handleSubmit(handleFormSubmit)} variant={Button.variants.secondary}/>
+                    <Button text="login" type="submit" id="login" value="login" variant={Button.variants.primary}/>
+                    <Button text="register" type="button" id="register" value="register"
+                            onClick={()=>navigate("/register")} variant={Button.variants.secondary}/>
                 </div>
             </form>
         </section>

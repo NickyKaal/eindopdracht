@@ -1,8 +1,8 @@
 import './LoginPage.css'
-import NameBanner from "../components/common/NameBanner.jsx";
-import LoginTile from "../components/auth/LoginTile.jsx";
+import NameBanner from "../../components/common/NameBanner.jsx";
+import LoginTile from "../../components/auth/LoginTile.jsx";
 
-function LoginPage() {
+function LoginPage({authenticateCB}) {
 
     return (
         <>
@@ -10,7 +10,7 @@ function LoginPage() {
                 <NameBanner/>
             </header>
             <main className="page-main">
-                <LoginTile/>
+                <LoginTile authenticateCB={authenticateCB}/>
             </main>
         </>
     )
