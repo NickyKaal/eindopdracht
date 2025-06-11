@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './Input.css';
 
-import showContentIcon from '../../assets/icons/eye-open.svg'
-import hideContentIcon from '../../assets/icons/eye-closed.svg'
+import showContentIcon from '../../../assets/icons/eye-open.svg'
+import hideContentIcon from '../../../assets/icons/eye-closed.svg'
 
-import Icon from "./Icon.jsx";
+import Icon from "../Icon.jsx";
 
 
 function Input({register, type, name, label, placeholder }) {
@@ -36,6 +36,8 @@ function Input({register, type, name, label, placeholder }) {
     return (
         <label className="inputField" htmlFor={`${name}-field`}>
             {label}
+
+
             <input
                 type={type !== "password" ?type:(contentHidden?type:"text")}
                 id={`${name}-field`}

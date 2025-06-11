@@ -1,0 +1,9 @@
+.radioSetWrapper{
+    display:flex;
+    justify-content: flex-start;
+    column-gap: 0.8rem;
+}
+
+.radioSetWrapper input{
+    margin:0 0.4rem 0 0;
+}

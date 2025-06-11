@@ -1,9 +1,10 @@
 import React from 'react';
 import "./RegisterTile.css";
 
-import Input from "../common/Input.jsx";
+import Input from "../common/inputs/Input.jsx";
 import {useForm} from "react-hook-form";
-import Button from "../common/Button.jsx";
+import Button from "../common/buttons/Button.jsx";
+import Radio from "../common/inputs/Radio.jsx";
 
 function RegisterTile() {
     const {register, handleSubmit, formState: {errors}} = useForm();
@@ -23,7 +24,7 @@ function RegisterTile() {
                 <Input register={register} type="text" label="Last name" name="last-name"/>
                 <Input register={register} type="text" label="E-mail address" name="email"
                        placeholder="example@domain.com"/>
-                <Input register={register} type="text" label="Gender" name="gender"/>
+                <Radio register={register} groupName="Gender" radioSet={[{label:"Male", value:"male"},{label:"Female", value:"female"}]} name="gender"/>
                 <Input register={register} type="password" label="Password" name="password"/>
                 <Input register={register} type="password" label="Repeat password" name="repeat-password"/>
 

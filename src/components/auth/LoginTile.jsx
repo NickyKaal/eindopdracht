@@ -1,9 +1,9 @@
 import React from 'react';
 import "./LoginTile.css";
 
-import Input from "../common/Input.jsx";
+import Input from "../common/inputs/Input.jsx";
 import {useForm} from "react-hook-form";
-import Button from "../common/Button.jsx";
+import Button from "../common/buttons/Button.jsx";
 
 function LoginTile() {
     const {register, handleSubmit, formState: {errors}} = useForm();
