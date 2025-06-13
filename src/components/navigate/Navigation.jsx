@@ -1,35 +1,59 @@
 import React from 'react';
 import './Navigation.css';
-import Button from "../common/buttons/Button.jsx";
-import {useNavigate} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+
+//TODO: Plaatjes zijn deprecated, vervangen met de nieuwe versie
+import {SignOut, UsersThree, User, Globe, CalendarDots, House} from "@phosphor-icons/react";
+import logo from '../../assets/images/logo.png'
 
 function Navigation({authenticateCB}) {
     const navigate = useNavigate();
+    const iconSize = 48, iconWeight = "bold";
 
     return (
-        <div>
-            <Button text="home" type="button" id="home" value="home" styleClas="buttonSizeMedium"
-                    onClick={() => navigate("/home")} variant={Button.variants.secondary}/>
-
-            <Button text="agenda" type="button" id="agenda" value="agenda" styleClas="buttonSizeMedium"
-                    onClick={() => navigate("/agenda")} variant={Button.variants.secondary}/>
-
-            <Button text="explore" type="button" id="explore" value="explore" styleClas="buttonSizeMedium"
-                    onClick={() => navigate("/explore")} variant={Button.variants.secondary}/>
-
-            <Button text="profile" type="button" id="profile" value="profile" styleClas="buttonSizeMedium"
-                    onClick={() => navigate("/profile")} variant={Button.variants.secondary}/>
-
-            <Button text="social" type="button" id="social" value="social" styleClas="buttonSizeMedium"
-                    onClick={() => navigate("/social")} variant={Button.variants.secondary}/>
-
-            <Button text="logout" type="button" id="logout" value="logout" styleClas="buttonSizeMedium"
-                    onClick={() => {
-                        authenticateCB(false);
-                        navigate("/login");
-                    }}
-                    variant={Button.variants.secondary}/>
-        </div>
+        <>
+            {/*TODO: volledig flexbox maken*/}
+            <div className="navigation-wrapper">
+                <div className="logo-wrapper">
+                    <img src={logo} alt="logo"/>
+                </div>
+                <nav>
+                    <ol>
+                        <li>
+                            <NavLink id="home" className="menu-item" to="/">
+                                <House size={iconSize} weight={iconWeight} />
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink id="explore" className="menu-item" to="/explore">
+                                <Globe size={iconSize} weight={iconWeight} />
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink id="social" className="menu-item" to="/social">
+                                <UsersThree size={iconSize} weight={iconWeight} />
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink id="agenda" className="menu-item" to="/agenda">
+                                <CalendarDots size={iconSize} weight={iconWeight} />
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink id="profile" className="menu-item" to="/profile">
+                                <User size={iconSize} weight={iconWeight} />
+                            </NavLink>
+                        </li>
+                    </ol>
+                </nav>
+                <NavLink id="logout" className="menu-item" to="/login" onClick={() => {
+                    authenticateCB(false);
+                    navigate("/login");
+                }}>
+                    <SignOut size={iconSize} weight={iconWeight} />
+                </NavLink>
+            </div>
+        </>
     );
 }
 

@@ -1,0 +1,40 @@
+.navigation-wrapper{
+    position: relative;
+    height: 100vh;
+    border-right: 2px solid var(--divider);
+}
+
+.logo-wrapper {
+    display:flex;
+    flex-basis: 6rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.logo-wrapper img{
+    width:6rem;
+}
+
+.menu-item{
+    color:var(--secondary);
+}
+
+.menu-item:hover,
+.menu-item.active{
+    color:var(--primary);
+}
+
+nav ol{
+    padding-left: 1.3rem;
+    list-style-type: none;
+}
+
+nav ol li{
+    margin-top: 1rem;
+}
+
+#logout {
+    position: fixed;
+    bottom:1rem;
+    left: 1rem
+}
