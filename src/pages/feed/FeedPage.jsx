@@ -1,10 +1,10 @@
 import React from 'react';
-import './HomePage.css';
+import './FeedPage.css';
 import NameBanner from "../../components/common/NameBanner.jsx";
 import RegisterTile from "../../components/auth/RegisterTile.jsx";
 import Navigation from "../../components/navigate/Navigation.jsx";
 
-function HomePage() {
+function FeedPage() {
     return (
         <main className="page-main">
             <p>home</p>
@@ -13,4 +13,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+export default FeedPage;
