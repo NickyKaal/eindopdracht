@@ -3,6 +3,7 @@
 }
 
 .content-panel {
-    background-color: var(--panel-background);
-    border-radius: 20px;
+    /*background-color: var(--panel-background);*/
+    background-color: #252527;
+    border-radius: 10px;
 }

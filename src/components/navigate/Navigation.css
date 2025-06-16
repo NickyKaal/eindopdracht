@@ -4,37 +4,37 @@
     border-right: 2px solid var(--divider);
 }
 
-.logo-wrapper {
+.navigation-wrapper .logo-wrapper {
     display:flex;
     flex-basis: 6rem;
     flex-grow: 0;
     flex-shrink: 0;
 }
 
-.logo-wrapper img{
+.navigation-wrapper .logo-wrapper img{
     width:6rem;
 }
 
-.menu-item{
+.navigation-wrapper .menu-item{
     color:var(--secondary);
 }
 
-.menu-item:hover,
-.menu-item.active{
+.navigation-wrapper .menu-item:hover,
+.navigation-wrapper .menu-item.active{
     color:var(--primary);
 }
 
-nav ol{
+.navigation-wrapper nav ol{
     padding-left: 1.3rem;
     list-style-type: none;
 }
 
-nav ol li{
+.navigation-wrapper nav ol li{
     margin-top: 1rem;
 }
 
-#logout {
+.navigation-wrapper #logout {
     position: fixed;
     bottom:1rem;
-    left: 1rem
+    left: 1.3rem
 }

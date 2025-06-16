@@ -1,0 +1,7 @@
+.feed-pinned-container h4{
+    color: var(--unfocused);
+    text-transform: uppercase;
+    display: flex;
+    column-gap: 0.5rem;
+
+}

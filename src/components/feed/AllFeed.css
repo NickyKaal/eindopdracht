@@ -1,0 +1,16 @@
+.feed-all-container h4{
+    color: var(--unfocused);
+    text-transform: uppercase;
+    display:flex;
+    column-gap: 0.5rem;
+}
+
+.feed-all-container h4 svg{
+    transform: rotate(45deg);
+}
+
+.list-items-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}

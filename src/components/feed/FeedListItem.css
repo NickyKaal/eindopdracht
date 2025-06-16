@@ -1,0 +1,14 @@
+.list-item-container{
+    padding:0.5rem 1rem;
+}
+
+
+.list-item-container .item-title-wrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-item-container .item-title-wrapper .item-date{
+    font-weight: bold;
+}

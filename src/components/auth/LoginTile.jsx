@@ -21,11 +21,11 @@ function LoginTile({authenticateCB}) {
         authenticateCB(true);
 
         console.log("Redirecting..");
-        navigate("/home");
+        navigate("/feed");
     }
 
     return (
-        <section className="content-panel">
+        <section className="content-panel login-container">
             <form className="login-form"  onSubmit={handleSubmit(handleFormSubmit)}>
                 <h1 className="allCaps">login</h1>
                 <Input register={register} type="text" label="E-mail address" name="email"

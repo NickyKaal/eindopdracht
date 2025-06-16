@@ -22,11 +22,11 @@ function RegisterTile({authenticateCB}) {
         authenticateCB(true);
 
         console.log("Redirecting..");
-        navigate("/home");
+        navigate("/feed");
     }
 
     return (
-        <section className="content-panel">
+        <section className="content-panel register-container">
             <form className="register-form" onSubmit={handleSubmit(handleFormSubmit)}>
                 <h1 className="allCaps">Register</h1>
                 <Input register={register} type="text" label="First name" name="first-name"/>

@@ -1,5 +1,5 @@
 import './LoginPage.css'
-import NameBanner from "../../components/common/NameBanner.jsx";
+import NameBanner from "../../components/header/NameBanner.jsx";
 import LoginTile from "../../components/auth/LoginTile.jsx";
 
 function LoginPage({authenticateCB}) {

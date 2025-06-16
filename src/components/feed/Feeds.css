@@ -1,0 +1,10 @@
+.feeds-container h3{
+    text-transform: uppercase;
+}
+
+.feeds-container {
+    border-right: 2px solid var(--divider);
+    padding: 2rem 0 0 1rem;
+    overflow: scroll;
+    height:100vh;
+}
