@@ -2,6 +2,7 @@ import React from 'react';
 import "./AllFeed.css"
 import {MapPin} from "@phosphor-icons/react";
 import FeedListItem from "./FeedListItem.jsx";
+import CollapsibleList from "../common/collapsible/CollapsibleList.jsx";
 
 function AllFeed() {
 
@@ -19,15 +20,12 @@ function AllFeed() {
         ,{key:10, date:new Date(), title:"title 10", shortDesc:"Dit is een korte omschrijving van de 10e notificatie", message:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, animi aperiam asperiores beatae cupiditate deserunt dolor doloribus excepturi facilis nam officiis perspiciatis quae quam quisquam ratione, recusandae sapiente ullam ut velit veniam! Asperiores blanditiis fuga ipsum perspiciatis qui soluta voluptatibus."}
     ]
 
-    const [expanded, toggleExpanded] = React.useState(false);
-
     return (
         <section className="feed-all-container">
             <h4><MapPin size={32} weight="bold" /> All</h4>
-            <div className="list-items-container"> {/*TODO: verplaatsen naar component en die gebruiken voor AllFeed+PinnedFeed*/}
-                {expanded && dummyData.map(item =><FeedListItem item={item}/>)}
-                {expanded===false && dummyData.slice(0,2).map(item =><FeedListItem item={item}/>)}
-            </div>
+            <CollapsibleList className="list-items-container">
+                {dummyData.map(item =><FeedListItem item={item}/>)}
+            </CollapsibleList>
         </section>
     );
 }

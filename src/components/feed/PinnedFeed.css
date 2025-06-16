@@ -1,7 +1,17 @@
 .feed-pinned-container h4{
     color: var(--unfocused);
     text-transform: uppercase;
-    display: flex;
+    display:flex;
     column-gap: 0.5rem;
+    padding: 2rem 0 0;
+}
 
+.feed-pinned-container h4 svg{
+    transform: rotate(45deg);
+}
+
+.list-pinned-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 }

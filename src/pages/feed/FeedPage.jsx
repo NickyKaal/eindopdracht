@@ -6,9 +6,14 @@ import Navigation from "../../components/navigate/Navigation.jsx";
 import Feeds from "../../components/feed/Feeds.jsx";
 
 function FeedPage() {
+
+    const PageContext = React.createContext(null);
+
     return (
         <main className="page-main">
-            <Feeds/>
+            <PageContext.Provider value={{ curren:null }}>
+                <Feeds/>
+            </PageContext.Provider>
         </main>
 
     );

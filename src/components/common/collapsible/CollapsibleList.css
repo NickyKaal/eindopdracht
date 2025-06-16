@@ -1,0 +1,16 @@
+.collapsible-list {
+    position:relative;
+}
+
+.collapsible-list .collapse-toggle{
+    position:absolute;
+    top:-27px;
+    right:0;
+    display:flex;
+    justify-content: right;
+    align-items: center;
+    column-gap: 0.2rem;
+    border-bottom: 1px solid var(--divider);
+    cursor: pointer;
+    width: 100%;
+}

@@ -4,7 +4,8 @@
 
 .feeds-container {
     border-right: 2px solid var(--divider);
-    padding: 2rem 0 0 1rem;
+    padding: 2rem 1rem 0;
     overflow: scroll;
     height:100vh;
+    width:400px;
 }

@@ -3,6 +3,7 @@
     text-transform: uppercase;
     display:flex;
     column-gap: 0.5rem;
+    padding: 2rem 0 0;
 }
 
 .feed-all-container h4 svg{
