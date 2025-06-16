@@ -1,8 +1,8 @@
-.feeds-container h3{
+.notifications-container h3{
     text-transform: uppercase;
 }
 
-.feeds-container {
+.notifications-container {
     border-right: 2px solid var(--divider);
     padding: 2rem 1rem 0;
     overflow: scroll;

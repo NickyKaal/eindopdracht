@@ -1,10 +1,10 @@
 import React from 'react';
-import "./PinnedFeed.css";
+import "./PinnedNotification.css";
 import {PushPin} from "@phosphor-icons/react";
-import FeedListItem from "./FeedListItem.jsx";
+import NotificationListItem from "./NotificationListItem.jsx";
 import CollapsibleList from "../common/collapsible/CollapsibleList.jsx";
 
-function PinnedFeed() {
+function PinnedNotification() {
 
     const dummyData = [
         {key:1, date:new Date(), title:"title 1", shortDesc:"Dit is een korte omschrijving van de notificatie", message:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, animi aperiam asperiores beatae cupiditate deserunt dolor doloribus excepturi facilis nam officiis perspiciatis quae quam quisquam ratione, recusandae sapiente ullam ut velit veniam! Asperiores blanditiis fuga ipsum perspiciatis qui soluta voluptatibus."}
@@ -22,14 +22,14 @@ function PinnedFeed() {
 
 
     return (
-        <section className="feed-pinned-container">
+        <section className="notification-pinned-container">
             <h4><PushPin size={32} weight="bold" /> Pinned</h4>
 
             <CollapsibleList className="list-items-container">
-                {dummyData.map(item =><FeedListItem item={item}/>)}
+                {dummyData.map(item =><NotificationListItem item={item}/>)}
             </CollapsibleList>
         </section>
     );
 }
 
-export default PinnedFeed;
+export default PinnedNotification;

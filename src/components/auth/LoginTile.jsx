@@ -21,7 +21,7 @@ function LoginTile({authenticateCB}) {
         authenticateCB(true);
 
         console.log("Redirecting..");
-        navigate("/feed");
+        navigate("/notification");
     }
 
     return (

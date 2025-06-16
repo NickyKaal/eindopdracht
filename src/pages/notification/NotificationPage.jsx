@@ -1,22 +1,22 @@
 import React from 'react';
-import './FeedPage.css';
+import './NotificationPage.css';
 import NameBanner from "../../components/header/NameBanner.jsx";
 import RegisterTile from "../../components/auth/RegisterTile.jsx";
 import Navigation from "../../components/navigate/Navigation.jsx";
-import Feeds from "../../components/feed/Feeds.jsx";
+import Notifications from "../../components/notifications/Notifications.jsx";
 
-function FeedPage() {
+function NotificationPage() {
 
     const PageContext = React.createContext(null);
 
     return (
         <main className="page-main">
             <PageContext.Provider value={{ curren:null }}>
-                <Feeds/>
+                <Notifications/>
             </PageContext.Provider>
         </main>
 
     );
 }
 
-export default FeedPage;
+export default NotificationPage;

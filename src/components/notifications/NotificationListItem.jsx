@@ -1,9 +1,9 @@
 import React from 'react';
-import "./FeedListItem.css";
+import "./NotificationListItem.css";
 import {formatDate} from "../../helpers/dateUtils.js";
 
 
-function FeedListItem({item}) {
+function NotificationListItem({item}) {
     return (
         <article key={item.key} className="content-panel list-item-container">
             <div className="item-title-wrapper">
@@ -15,4 +15,4 @@ function FeedListItem({item}) {
     );
 }
 
-export default FeedListItem;
+export default NotificationListItem;

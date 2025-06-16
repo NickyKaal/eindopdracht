@@ -1,4 +1,4 @@
-.feed-all-container h4{
+.notification-all-container h4{
     color: var(--unfocused);
     text-transform: uppercase;
     display:flex;
@@ -6,7 +6,7 @@
     padding: 2rem 0 0;
 }
 
-.feed-all-container h4 svg{
+.notification-all-container h4 svg{
     transform: rotate(45deg);
 }
 

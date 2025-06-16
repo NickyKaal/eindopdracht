@@ -20,7 +20,7 @@ function Navigation({authenticateCB}) {
                 <nav>
                     <ol>
                         <li>
-                            <NavLink id="feed" className="menu-item" to="/feed">
+                            <NavLink id="feed" className="menu-item" to="/notification">
                                 <House size={iconSize} weight={iconWeight} />
                             </NavLink>
                         </li>

@@ -1,10 +1,10 @@
 import React from 'react';
-import "./AllFeed.css"
+import "./AllNotification.css"
 import {MapPin} from "@phosphor-icons/react";
-import FeedListItem from "./FeedListItem.jsx";
+import NotificationListItem from "./NotificationListItem.jsx";
 import CollapsibleList from "../common/collapsible/CollapsibleList.jsx";
 
-function AllFeed() {
+function AllNotification() {
 
 
     const dummyData = [
@@ -21,13 +21,13 @@ function AllFeed() {
     ]
 
     return (
-        <section className="feed-all-container">
+        <section className="notification-all-container">
             <h4><MapPin size={32} weight="bold" /> All</h4>
             <CollapsibleList className="list-items-container">
-                {dummyData.map(item =><FeedListItem item={item}/>)}
+                {dummyData.map(item =><NotificationListItem item={item}/>)}
             </CollapsibleList>
         </section>
     );
 }
 
-export default AllFeed;
+export default AllNotification;
