@@ -24,7 +24,7 @@ function AllNotification() {
         <section className="notification-all-container">
             <h4><MapPin size={32} weight="bold" /> All</h4>
             <CollapsibleList className="list-items-container">
-                {dummyData.map(item =><NotificationListItem item={item}/>)}
+                {dummyData.map(item =><NotificationListItem key={item.key} item={item}/>)}
             </CollapsibleList>
         </section>
     );

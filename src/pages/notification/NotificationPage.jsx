@@ -4,6 +4,7 @@ import NameBanner from "../../components/header/NameBanner.jsx";
 import RegisterTile from "../../components/auth/RegisterTile.jsx";
 import Navigation from "../../components/navigate/Navigation.jsx";
 import Notifications from "../../components/notifications/Notifications.jsx";
+import Notification from "../../components/notifications/Notification.jsx";
 
 function NotificationPage() {
 
@@ -13,6 +14,7 @@ function NotificationPage() {
         <main className="page-main">
             <PageContext.Provider value={{ curren:null }}>
                 <Notifications/>
+                <Notification/>
             </PageContext.Provider>
         </main>
 

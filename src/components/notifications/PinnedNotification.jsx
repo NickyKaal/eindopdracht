@@ -26,7 +26,7 @@ function PinnedNotification() {
             <h4><PushPin size={32} weight="bold" /> Pinned</h4>
 
             <CollapsibleList className="list-items-container">
-                {dummyData.map(item =><NotificationListItem item={item}/>)}
+                {dummyData.map(item =><NotificationListItem key={item.key} item={item}/>)}
             </CollapsibleList>
         </section>
     );
