@@ -9,7 +9,7 @@ function RegisterPage({authenticateCB}) {
             <header className="page-header">
                 <NameBanner/>
             </header>
-            <main className="page-main">
+            <main className="page-main-register">
                 <RegisterTile authenticateCB={authenticateCB}/>
             </main>
         </>

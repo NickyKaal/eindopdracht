@@ -1,6 +1,6 @@
 .list-item-container{
+    margin-top: 1rem;
     padding:0.5rem 1rem;
-    max-height: 94px;
 }
 
 
@@ -8,6 +8,7 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px dotted var(--divider);
 }
 
 .list-item-container .item-title-wrapper .item-date{

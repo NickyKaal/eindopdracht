@@ -12,23 +12,22 @@ import PageNotFound from "./pages/404/PageNotFound.jsx";
 import PageWrapper from "./components/pages/PageWrapper.jsx";
 
 function App() {
-    const [auth, setAuth] =useState(false);
-
-
+    const [auth, setAuth] =useState(true);
 
     return (
         <>
             <Routes>
                 <Route path="/"         element={ auth===false ?<Navigate to="/login" />                :<Navigate to="/notification" />}/>
                 <Route path="/login"    element={ auth===false ?<LoginPage authenticateCB={setAuth}/>   :<Navigate to="/notification" />}/>
-                <Route path="/register" element={ auth===false ?<RegisterPage authenticateCB={setAuth}/>git:<Navigate to="/notification" />}/>
+                <Route path="/register" element={ auth===false ?<RegisterPage authenticateCB={setAuth}/>:<Navigate to="/notification" />}/>
 
                 <Route element={<PageWrapper authenticateCB={setAuth}/>}>
-                    <Route path="/agenda"       element={ auth?<AgendaPage />       :<Navigate to="/login"/>}/>
-                    <Route path="/explore"      element={ auth?<ExplorePage />      :<Navigate to="/login"/>}/>
-                    <Route path="/notification" element={ auth?<NotificationPage /> :<Navigate to="/login"/>}/>
-                    <Route path="/profile"      element={ auth?<ProfilePage />      :<Navigate to="/login"/>}/>
-                    <Route path="/social"       element={ auth?<SocialPage />       :<Navigate to="/login"/>}/>
+                    <Route path="/agenda"           element={ auth?<AgendaPage />       :<Navigate to="/login"/>}/>
+                    <Route path="/explore"          element={ auth?<ExplorePage />      :<Navigate to="/login"/>}/>
+                    <Route path="/notification"     element={ auth?<NotificationPage /> :<Navigate to="/login"/>}/>
+                    <Route path="/notification/:id" element={ auth?<NotificationPage /> :<Navigate to="/login"/>}/>
+                    <Route path="/profile"          element={ auth?<ProfilePage />      :<Navigate to="/login"/>}/>
+                    <Route path="/social"           element={ auth?<SocialPage />       :<Navigate to="/login"/>}/>
                 </Route>
                 <Route path="*" element={<PageNotFound />} />
             </Routes>

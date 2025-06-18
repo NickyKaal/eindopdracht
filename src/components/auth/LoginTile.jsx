@@ -12,15 +12,9 @@ function LoginTile({authenticateCB}) {
     const navigate = useNavigate();
 
     function handleFormSubmit(data, e) {
-        console.log(e.target.value);
-        console.log(e.target.id);
 
-        console.log(data);
-
-        console.log("Do dummy login");
         authenticateCB(true);
 
-        console.log("Redirecting..");
         navigate("/notification");
     }
 

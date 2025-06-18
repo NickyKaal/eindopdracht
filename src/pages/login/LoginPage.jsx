@@ -9,7 +9,7 @@ function LoginPage({authenticateCB}) {
             <header className="page-header">
                 <NameBanner/>
             </header>
-            <main className="page-main">
+            <main className="page-main-login">
                 <LoginTile authenticateCB={authenticateCB}/>
             </main>
         </>
