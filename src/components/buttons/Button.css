@@ -21,6 +21,13 @@ button:hover {
     color:var(--panel-background);
 }
 
+
 .buttonSizeMedium{
     flex-basis: 200px;
+    width: 200px;
+}
+
+.buttonSizeSmall{
+    flex-basis: 100px;
+    font-size: 1rem;
 }
