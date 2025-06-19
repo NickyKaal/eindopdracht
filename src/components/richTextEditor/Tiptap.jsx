@@ -3,7 +3,7 @@ import './Tiptap.css';
 
 import { EditorContent, useEditor  } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import React, {useEffect} from 'react'
+import React, {useEffect,useRef} from 'react'
 
 
 
@@ -128,19 +128,16 @@ const MenuBar = function MenuBar({ editor }){
     )
 }
 
-function Tiptap({content, editable}) {
+function Tiptap({content="<p> dit is een dummy text</p>", editable,menu, rhf ,name}) {
     const editor = useEditor({
-        onUpdate({ editor }) {
-            console.log("onUpdate");
-        },
-        onSelectionUpdate({ editor }) {
-            console.log("onSelectionUpdate");
+        onUpdate({editor}) {
+            rhf?.setValue(name,editor.getHTML())
         },
         extensions: [
             StarterKit,
         ],
-        editable:editable,
-        content:content,
+        editable: editable,
+        content: content,
         editorProps: {
             attributes: {
                 spellcheck: 'false',
@@ -154,9 +151,18 @@ function Tiptap({content, editable}) {
     }, [content]);
 
 
+    useEffect(() => {
+        rhf?.register(name, {
+            required: {
+                value: false,
+                message: `${name[0].toUpperCase() + name.slice(1).toLowerCase()} is verplicht`,
+            }
+        });
+    }, []);
+
     return (
         <div className={editable ? "tiptap-wrapper" : "tiptap-wrapper read-only"}>
-            {editable && <MenuBar editor={editor} />}
+            {editable && menu && <MenuBar editor={editor} />}
             <EditorContent editor={editor} />
         </div>
     )

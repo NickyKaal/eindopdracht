@@ -3,6 +3,8 @@ import "./Notification.css";
 import Tiptap from "../../components/richTextEditor/Tiptap.jsx";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
+import CreateNotificationForm from "./CreateNotificationForm.jsx";
+import Overlay from "../../components/utils/Overlay.jsx";
 
 function Notification() {
     async function fetchId() {
@@ -43,7 +45,9 @@ function Notification() {
         }
     }
 
+
     const { id } = useParams();
+    const [createNotificationForm, toggleCreateNotificationForm] = React.useState(false);
     const [content, setContent] = React.useState("");
     const [contentId, setContentId] = React.useState(id);
     const navigate = useNavigate();
@@ -71,10 +75,20 @@ function Notification() {
         }
     }, []);
 
+    function toggleForm(){
+        toggleCreateNotificationForm(!createNotificationForm);
+    }
 
-    return (<section className="notification-container">
-        <Tiptap editable={false} content={content}/>
-    </section>);
+    return (
+        <>
+            { createNotificationForm && <Overlay><CreateNotificationForm close={toggleCreateNotificationForm}/></Overlay>}
+            <section className="notification-container">
+                <div className="notification-actions">
+                    <button type="button" onClick={toggleForm}>create</button>
+                </div>
+                <Tiptap editable={false} content={content}/>
+            </section>
+        </>);
 }
 
 export default Notification;
