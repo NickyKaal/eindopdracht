@@ -9,7 +9,7 @@
           "required": true
         },
         {
-          "name": "date",
+          "name": "created",
           "type": "date",
           "required": false,
           "default": "CurrentDate"
@@ -20,12 +20,12 @@
           "required": true
         },
         {
-          "name": "shortDesc",
+          "name": "subtitle",
           "type": "string",
           "required": true
         },
         {
-          "name": "message",
+          "name": "content",
           "type": "string",
           "required": true
         },
