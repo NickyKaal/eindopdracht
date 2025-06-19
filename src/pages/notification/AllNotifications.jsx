@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import "./AllNotifications.css"
 import {MapPin} from "@phosphor-icons/react";
 import NotificationListItem from "./NotificationListItem.jsx";
-import CollapsibleList from "../common/collapsible/CollapsibleList.jsx";
+import CollapsibleList from "../../components/utils/CollapsibleList.jsx";
 import axios from "axios";
 
 function AllNotifications() {

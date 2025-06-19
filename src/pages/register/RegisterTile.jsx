@@ -1,10 +1,10 @@
 import React from 'react';
 import "./RegisterTile.css";
 
-import Input from "../common/inputs/Input.jsx";
+import Input from "../../components/inputs/Input.jsx";
 import {useForm} from "react-hook-form";
-import Button from "../common/buttons/Button.jsx";
-import Radio from "../common/inputs/Radio.jsx";
+import Button from "../../components/buttons/Button.jsx";
+import Radio from "../../components/inputs/Radio.jsx";
 import {useNavigate} from "react-router-dom";
 
 function RegisterTile({authenticateCB}) {

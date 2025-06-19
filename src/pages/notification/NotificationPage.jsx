@@ -1,7 +1,7 @@
 import React from 'react';
 import './NotificationPage.css';
-import Notifications from "../../components/notifications/Notifications.jsx";
-import Notification from "../../components/notifications/Notification.jsx";
+import Notifications from "./Notifications.jsx";
+import Notification from "./Notification.jsx";
 
 function NotificationPage() {
 

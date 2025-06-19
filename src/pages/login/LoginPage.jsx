@@ -1,6 +1,6 @@
 import './LoginPage.css'
 import NameBanner from "../../components/header/NameBanner.jsx";
-import LoginTile from "../../components/auth/LoginTile.jsx";
+import LoginTile from "./LoginTile.jsx";
 
 function LoginPage({authenticateCB}) {
 

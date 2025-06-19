@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import "./Notification.css";
-import Tiptap from "../common/editor/Tiptap.jsx";
+import Tiptap from "../../components/richTextEditor/Tiptap.jsx";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 

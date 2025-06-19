@@ -1,6 +1,6 @@
 import './RegisterPage.css'
 import NameBanner from "../../components/header/NameBanner.jsx";
-import RegisterTile from "../../components/auth/RegisterTile.jsx";
+import RegisterTile from "./RegisterTile.jsx";
 
 function RegisterPage({authenticateCB}) {
 

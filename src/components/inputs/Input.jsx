@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './Input.css';
 
-import showContentIcon from '../../../assets/icons/eye-open.svg'
-import hideContentIcon from '../../../assets/icons/eye-closed.svg'
+import showContentIcon from '../../assets/icons/eye-open.svg'
+import hideContentIcon from '../../assets/icons/eye-closed.svg'
 
-import Icon from "../Icon.jsx";
+import Icon from "../common/Icon.jsx";
 
 
 function Input({register, type, name, label, placeholder }) {
