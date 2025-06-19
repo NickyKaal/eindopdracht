@@ -7,9 +7,24 @@
     padding: 0.2rem 0;
 }
 
+
+
 .inputField input{
     border: solid 0 transparent;
     border-radius: 5px;
 
     padding:0 0 0 0.25rem;
+
+}
+
+.inputField.small{
+    width: 100px;
+}
+
+.inputField.medium{
+    width: 200px;
+}
+
+.inputField.large{
+    width: 400px;
 }

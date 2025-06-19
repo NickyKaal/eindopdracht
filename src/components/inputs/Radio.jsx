@@ -1,11 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Radio.css';
-
-import showContentIcon from '../../assets/icons/eye-open.svg'
-import hideContentIcon from '../../assets/icons/eye-closed.svg'
-
-import Icon from "../common/Icon.jsx";
-
 
 function Radio({register, radioSet, name, groupName}) {
 

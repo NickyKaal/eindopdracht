@@ -7,7 +7,7 @@ import hideContentIcon from '../../assets/icons/eye-closed.svg'
 import Icon from "../common/Icon.jsx";
 
 
-function Input({register, type, name, label, placeholder }) {
+function Input({register, type, name, label, placeholder ,size}) {
 
     let [contentHidden, setContentHidden] = useState( type === "password");
 
@@ -34,14 +34,13 @@ function Input({register, type, name, label, placeholder }) {
     const hideIcon = iconDefinitionsMap.get(contentHidden);
 
     return (
-        <label className="inputField" htmlFor={`${name}-field`}>
+        <label className={"inputField" + (size ? " "+Input.size[size]:"")} htmlFor={`${name}-field`}>
             {label}
-
-
             <input
                 type={type !== "password" ?type:(contentHidden?type:"text")}
                 id={`${name}-field`}
                 placeholder={placeholder}
+                className={Input.size[size]}
                 {...register(name, {
                     required: {
                         value: false,
@@ -52,6 +51,12 @@ function Input({register, type, name, label, placeholder }) {
             {type === "password" && <Icon {...hideIcon}/>}
         </label>
     );
+}
+
+Input.size = {
+    small:"small",
+    medium:"medium",
+    large:"large"
 }
 
 export default Input;
