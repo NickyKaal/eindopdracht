@@ -43,11 +43,13 @@ html {
     }
 }
 
+textarea,
 input {
     color:var(--focused);
     background-color: var(--input-background);
 }
 
+textarea::placeholder,
 input::placeholder {
     color: var(--unfocused);
 }
