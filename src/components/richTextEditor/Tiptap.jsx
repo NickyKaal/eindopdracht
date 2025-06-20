@@ -141,10 +141,14 @@ function Tiptap({content/*="<p>edit</p>"*/, editable=true,menu=true, rhf ,name})
 
     return (
         <>
-            {editable && menu && <Menu editor={editor}/>}
-            <label className="inputTextarea">Short description
+            {name && <label className="inputRichText">{name}
+                {editable && menu && <Menu editor={editor}/>}
                 <EditorContent editor={editor}/>
-            </label>
+            </label>}
+            {!name && <>
+                {editable && menu && <Menu editor={editor}/>}
+                <EditorContent editor={editor}/>
+            </>}
         </>
     )
 }
