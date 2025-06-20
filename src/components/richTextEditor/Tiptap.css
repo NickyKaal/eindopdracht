@@ -1,10 +1,17 @@
-.tiptap-wrapper{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+/* Menu */
+.bubble-menu {
+    background-color: var(--panel-background);
+    border: 1px solid var(--divider);
+    border-radius: 0.7rem;
 
+    display: flex;
+    padding: 0.2rem;
+    flex-direction: row;
+    column-gap: 0.5rem;
+}
+
+.is-active{
+    color:var(--highlight);
 }
 
 /* Code and preformatted text styles */
@@ -38,3 +45,14 @@ blockquote {
     /*    border-top: 1px solid dimgray;*/
     /*    margin: 2rem 0;*/
     /*}*/
+
+.ProseMirror-trailingBreak{
+    width: 100%;
+}
+
+.tiptap.ProseMirror[contenteditable="true"]{
+    color:var(--focused);
+    background-color: var(--input-background);
+    border: solid 0 transparent;
+    border-radius: 5px;
+}

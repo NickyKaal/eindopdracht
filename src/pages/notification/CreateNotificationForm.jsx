@@ -46,12 +46,11 @@ function CreateNotificationForm({close}) {
     return (
         <div className="create-notification-form-container">
             <form className="content-panel create-notification-form" onSubmit={handleSubmit(handleFormSubmit)}>
-                {/*<button id="close" onClick={()=>{close();}}><XCircle size={32} /></button>*/}
                 <h5 className="allCaps">create notification</h5>
                 <Input register={register} size={Input.size.medium} type="text" label="Title" name="title"/>
                 <Checkbox register={register} label="Pinned" name="pinned"/>
                 <Textarea register={register} label="Short description" name="subtitle"/>
-                <Tiptap rhf={{register:register,setValue:setValue}} editable={true} menu={false} label="Content" name="content"/>
+                <Tiptap rhf={{register:register,setValue:setValue}} label="Content" name="content"/>
 
                 <div className="button-wrapper">
                     <Button text="cancel" onClick={()=>{close();}} id="cancel" value="cancel" styleClas="buttonSizeSmall" variant={Button.variants.secondary}/>

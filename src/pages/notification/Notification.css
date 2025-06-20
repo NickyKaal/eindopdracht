@@ -4,3 +4,12 @@
     align-items: center;
     flex-direction: column;
 }
+
+.tiptap-wrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 0 4rem;
+}

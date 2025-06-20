@@ -79,6 +79,7 @@ function Notification() {
         toggleCreateNotificationForm(!createNotificationForm);
     }
 
+    let editable = false, menu = false;
     return (
         <>
             { createNotificationForm && <Overlay><CreateNotificationForm close={toggleCreateNotificationForm}/></Overlay>}
@@ -86,7 +87,9 @@ function Notification() {
                 <div className="notification-actions">
                     <button type="button" onClick={toggleForm}>create</button>
                 </div>
-                <Tiptap editable={false} content={content}/>
+                <div className={editable ? "tiptap-wrapper" : "tiptap-wrapper read-only"}>
+                    <Tiptap editable={editable} menu={menu} content={content}/>
+                </div>
             </section>
         </>);
 }
