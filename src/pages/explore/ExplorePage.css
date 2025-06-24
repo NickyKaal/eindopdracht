@@ -1,0 +1,13 @@
+.page-main-explore{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.result-pane-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    row-gap: 1rem;
+}

@@ -9,7 +9,7 @@ import ExplorePage from "./pages/explore/ExplorePage.jsx";
 import ProfilePage from "./pages/profile/ProfilePage.jsx";
 import SocialPage from "./pages/social/SocialPage.jsx";
 import PageNotFound from "./pages/404/PageNotFound.jsx";
-import PageWrapper from "./components/pages/PageWrapper.jsx";
+import PageWrapper from "./components/utils/PageWrapper.jsx";
 
 function App() {
     const [auth, setAuth] =useState(true);

@@ -1,0 +1,30 @@
+.searchbar-container{
+    width:100%;
+    display: flex;
+    border-bottom: 2px solid var(--divider);
+    flex-basis: 200px;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.searchbar-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:1000px;
+    row-gap: 1rem;
+}
+
+.prefered-searchfield-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.searchbar-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    column-gap: 1rem;
+}

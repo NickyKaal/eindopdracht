@@ -2,7 +2,7 @@ import React from 'react';
 import './Textarea.css';
 
 
-function Checkbox({register,  name, label, rows}) {
+function Textarea({register,  name, label, rows}) {
 
     return (
         <label className="inputTextarea" htmlFor={`${name}-field`}>
@@ -22,4 +22,4 @@ function Checkbox({register,  name, label, rows}) {
 }
 
 
-export default Checkbox;
+export default Textarea;

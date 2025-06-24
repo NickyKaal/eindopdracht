@@ -43,12 +43,14 @@ html {
     }
 }
 
+select,
 textarea,
 input {
     color:var(--focused);
     background-color: var(--input-background);
 }
 
+select::placeholder,
 textarea::placeholder,
 input::placeholder {
     color: var(--unfocused);
@@ -78,4 +80,9 @@ h4{
 
 h5{
     font-size: 1.25rem;
+}
+
+p.thick{
+    font-weight: bold;
+    font-size: 1.15rem;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import "./NotificationListItem.css";
-import {formatDate} from "../../helpers/dateUtils.js";
+import {formatDate} from "../../scripts/helpers/dateUtils.js";
 import {useNavigate, useParams} from "react-router-dom";
 
 function NotificationListItem({ item}) {

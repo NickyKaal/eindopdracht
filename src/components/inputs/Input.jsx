@@ -53,6 +53,7 @@ function Input({register, type, name, label, placeholder ,size}) {
     );
 }
 
+// TODO: generiek oplossen, niet overal los maken
 Input.size = {
     small:"small",
     medium:"medium",
