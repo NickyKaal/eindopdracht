@@ -12,8 +12,16 @@ function EventItem({item}) {
     let genres = JSON.parse(item.genres);
 
     const [friendList, setfriendList] = React.useState([]);
+    const [friendsLoaded, toggleFriendsLoaded] = React.useState(false);
+    const [friendsError, setFriendsError] = React.useState("");
+    const [friendsFailed, toggleFriendsFailed] = React.useState(false);
+
     async function loadFriendGoing() {
         try {
+            toggleFriendsLoaded(false);
+            setFriendsError("");
+            toggleFriendsFailed(false);
+
             const response = await {data:[
                     {
                         id:1,
@@ -32,10 +40,16 @@ function EventItem({item}) {
                         name:"Bertje Gab"
                     }
             ]};
+
             setfriendList(response.data);
         }
         catch (e) {
             console.error(e);
+            setFriendsError("Loading friendlist went wrong");
+            toggleFriendsFailed(true);
+        }
+        finally {
+            // toggleFriendsLoaded(true);
         }
     }
 
@@ -61,9 +75,8 @@ function EventItem({item}) {
             <div className="friends-going-container">
                 <h4>Going</h4>
                 <div className="friends-list-container">
-                    <Suspense fallback={<LoadingContent/>}>
-                        {friendList && friendList.map(friend =><FriendTile friend={friend} key={friend.id} />)}
-                    </Suspense>
+                    {friendsLoaded === false && <LoadingContent/> }
+                    {friendsLoaded && friendsFailed === false && friendList.map(friend =><FriendTile friend={friend} key={friend.id} />)}
                 </div>
             </div>
         </article>

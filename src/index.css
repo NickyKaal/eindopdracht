@@ -86,3 +86,12 @@ p.thick{
     font-weight: bold;
     font-size: 1.15rem;
 }
+
+.allCaps{
+    text-transform:uppercase;
+}
+
+.content-panel {
+    background-color: var(--panel-background);
+    border-radius: 10px;
+}

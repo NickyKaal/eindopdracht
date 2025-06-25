@@ -34,7 +34,7 @@ function AllNotifications() {
 
     return (
         <section className="notification-all-container">
-            <h4><MapPin size={32} weight="bold" /> All</h4>
+            <h4 className="allCaps"><MapPin size={32} weight="bold" /> All</h4>
             <CollapsibleList className="list-items-container">
                 {data.map(item =><NotificationListItem key={item.id} item={item}/>)}
             </CollapsibleList>

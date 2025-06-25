@@ -1,6 +1,4 @@
-.notifications-container h3{
-    text-transform: uppercase;
-}
+
 
 .notifications-container {
     border-right: 2px solid var(--divider);

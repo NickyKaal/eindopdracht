@@ -9,7 +9,7 @@ function Notifications() {
 
     return (
         <section className="notifications-container">
-            <h3>Notifications</h3>
+            <h3 className="allCaps">Notifications</h3>
             <PinnedNotifications/>
             <AllNotifications/>
         </section>

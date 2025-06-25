@@ -1,9 +1,0 @@
-.allCaps{
-    text-transform:uppercase;
-}
-
-.content-panel {
-    background-color: var(--panel-background);
-    /*background-color: #252527;*/
-    border-radius: 10px;
-}
