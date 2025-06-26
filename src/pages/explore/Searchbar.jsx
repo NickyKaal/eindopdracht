@@ -7,9 +7,8 @@ import Select from "../../components/inputs/Select.jsx";
 import Overlay from "../../components/utils/Overlay.jsx";
 import CreateEventForm from "./CreateEventForm.jsx";
 
-function Searchbar() {
+function Searchbar({reload}) {
     const {reset, register, handleSubmit, formState: {errors}} = useForm();
-
     const [createEventForm, toggleCreateEventForm] = React.useState(false);
 
     const contentManager = true;
@@ -20,6 +19,7 @@ function Searchbar() {
         console.log(data);
 
         console.log("Do dummy search");
+        reload({dummy:"test",name:data["search-name"]});
     }
 
     let locationOptions = [
@@ -69,7 +69,7 @@ function Searchbar() {
                 <div className="searchbar-button-container">
                     <Button text="clear" type="button" id="clear" value="clear" styleClas="buttonSizeMedium"
                             onClick={()=>reset()} variant={Button.variants.secondary}/>
-                    <Button text="filter" type="submit" id="register" value="register" styleClas="buttonSizeMedium" variant={Button.variants.primary}/>
+                    <Button text="filter" type="submit" id="filter" value="filter" styleClas="buttonSizeMedium" variant={Button.variants.primary}/>
                     {contentManager && <Button type="button" text="create" id="create" value="create"  styleClas="buttonSizeMedium" variant={Button.variants.primary} onClick={toggleForm}/>}
                 </div>
             </form>

@@ -2,10 +2,10 @@ import {VinylRecord } from "@phosphor-icons/react";
 import './LoadingContent.css';
 import React from "react";
 
-function LoadingContent() {
+function LoadingContent(size=32) {
     return (
         <div className="loading-content">
-            <VinylRecord/>
+            <VinylRecord size={size}/>
         </div>
     );
 }

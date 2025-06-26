@@ -1,9 +1,10 @@
 import {useEffect} from "react";
 
-export default function useSafeCall(apiCall, dependencies = []) {
+export function useSafeCall(apiCall, dependencies = []) {
 
     useEffect(()=>{
         const controller = new AbortController();
+
 
         apiCall(controller);
 

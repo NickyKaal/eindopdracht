@@ -1,95 +1,174 @@
 import axios from "axios";
-import React from "react";
+import React, {useCallback, useEffect} from "react";
 import * as apiUtil from "./util/apiUtils.js";
+const BASE_URL = "https://novi-backend-api-wgsgz.ondigitalocean.app/api";
 
-export function useFetchPokemonIndexPage() {
-    const [pageIndex, setPageIndex] = React.useState(1);
-    const [pokemonIndexPage, setPokemonIndexPage] = React.useState([]);
-    const [error, setError] = React.useState("");
-    const [loaded, toggleLoaded] = React.useState(false);
-    const [failed, toggleFailed] = React.useState(false);
-    const PAGE_LIMIT = 20;
+export function useFetchEventsList() {
 
-    function navigatePage(offset){
-
-        if( offset < 0 && pageIndex <= 1 ){
-            console.warn("cant navigate, already on first page");
-        }
-        else {
-
-            setPageIndex(pageIndex + offset);
-        }
-    }
-
-    async function loadPageIndex(controller){
-        try{
-            setPokemonIndexPage({});
-            setError("");
-            toggleLoaded(false);
-            toggleFailed(false);
-
-            const response =  await axios.get(
-                `https://pokeapi.co/api/v2/pokemon/?limit=${PAGE_LIMIT}&offset=${pageIndex*PAGE_LIMIT}`,{
-                    signal: controller.signal
-                });
-
-
-            setPokemonIndexPage(response.data.results);
-        }
-        catch(err){
-            console.error(err);
-            toggleFailed(true);
-            setError("Oops.. Something went wrong");
-            setPokemonIndexPage([]);
-        }
-        finally {
-            toggleLoaded(true);
-        }
-    }
-
-    apiUtil.useSafeCall(loadPageIndex);
-
-    apiUtil.useSafeCall((controller)=>{
-        if( pageIndex > 1){
-            loadPageIndex(controller);
-    }},[pageIndex]);
-
-
-    return {pageIndex,pokemonIndexPage,error,loaded,failed,navigatePage}
-}
-
-export function useFetchPokemon(entry) {
-
-    const [pokemon, setPokemon] = React.useState({}),
+    const [result, setResult] = React.useState([]),
         [ failed, toggleFailed] = React.useState(false),
         [error , setError] = React.useState(""),
         [loaded, toggleLoaded] = React.useState(false);
 
-    async function loadPokemon(controller){
+    async function loadCall(controller){
+        console.log("loadCall");
         try{
             toggleLoaded(false);
             toggleFailed( false);
             setError( "");
-            setPokemon({});
+            setResult([]);
 
-            const response =  await axios.get(
-                `https://pokeapi.co/api/v2/pokemon/${entry.name}`,{
+            const response = await axios.get(`${BASE_URL}/events`, {
+                headers: {
+                    'novi-education-project-id': import.meta.env.VITE_API_KEY,
                     signal: controller.signal
-                });
+                },
+                params: {
+                    'limit': 10
+                    ,'sort': "eventDT"
+                    ,"eventDT[gt]":new Date()
+                    ,"fields":"id"
+                }
+            });
 
-            setPokemon(response.data);
+            setResult(response.data);
         }
         catch(err){
             console.warn(err);
             toggleFailed( true);
-            setError( "The pokemon ran away i gues...");
+            setError( err.message);
         }
         finally {
             toggleLoaded(true);
         }
     }
 
-    useSafeApiCall(loadPokemon);
+    apiUtil.useSafeCall(loadCall);
 
-    return {pokemon,loaded,failed,error};
+    console.log("build");
+    const reloadWithFilter = useCallback( async(filter)=>{
+        console.log("called reloadWithFilter");
+        const controller = new AbortController();
+
+        console.log("filter",filter);
+
+        loadCall(controller, filter);
+
+
+        return function cleanup() {
+            console.log("called abort");
+            controller.abort();
+        }
+    },[]);
+
+    apiUtil.useSafeCall(reloadWithFilter,[reloadWithFilter]);
+
+    return {result,loaded,failed,error, reload:reloadWithFilter};
+}
+
+export function useFetchEvent(id) {
+
+    const [result, setResult] = React.useState({}),
+        [ failed, toggleFailed] = React.useState(false),
+        [error , setError] = React.useState(""),
+        [loaded, toggleLoaded] = React.useState(false);
+
+    async function loadCall(controller){
+        try{
+            toggleLoaded(false);
+            toggleFailed( false);
+            setError( "");
+            setResult({});
+
+            const response = await axios.get(`${BASE_URL}/events/${id}`, {
+                headers: {
+                    'novi-education-project-id': import.meta.env.VITE_API_KEY,
+                    signal: controller.signal
+                },
+                params: {
+                    'limit': 10
+                    ,'sort': "eventDT"
+                    ,"eventDT[gt]":new Date()
+                }
+            });
+
+            response.data.genres = JSON.parse(response.data.genres);
+            response.data.location = JSON.parse(response.data.location);
+
+            setResult(response.data);
+        }
+        catch(err){
+            console.warn(err);
+            toggleFailed( true);
+            setError( err.message);
+        }
+        finally {
+            toggleLoaded(true);
+        }
+    }
+
+    apiUtil.useSafeCall(loadCall);
+
+    return {result,loaded,failed,error};
+}
+
+export function useFetchFriends(id) {
+
+    const [result, setResult] = React.useState({}),
+        [ failed, toggleFailed] = React.useState(false),
+        [error , setError] = React.useState(""),
+        [loaded, toggleLoaded] = React.useState(false);
+
+    async function loadCall(controller){
+        try{
+            toggleLoaded(false);
+            toggleFailed( false);
+            setError( "");
+            setResult([]);
+
+            const response = await axios.get(`${BASE_URL}/events/${id}`, {
+                headers: {
+                    'novi-education-project-id': import.meta.env.VITE_API_KEY,
+                    signal: controller.signal
+                },
+                params: {
+                    'limit': 10
+                    ,'sort': "eventDT"
+                    ,"eventDT[gt]":new Date()
+                }
+            });
+
+            setResult([
+                {
+                    id:1,
+                    name:"Pietje Pub"
+                },
+                {
+                    id:2,
+                    name:"Bob de Brouwer"
+                },
+                {
+                    id:3,
+                    name:"Fee Sneus"
+                },
+                {
+                    id:4,
+                    name:"Bertje Gab"
+                }
+            ]);
+            // setResult(response.data);
+        }
+        catch(err){
+            console.warn(err);
+            toggleFailed( true);
+            setError( err.message);
+        }
+        finally {
+            toggleLoaded(true);
+        }
+    }
+
+    apiUtil.useSafeCall(loadCall);
+
+    return {result,loaded,failed,error};
 }
