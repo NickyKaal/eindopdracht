@@ -5,6 +5,9 @@ import Button from "../../components/buttons/Button.jsx";
 import {useForm} from "react-hook-form";
 import Select from "../../components/inputs/Select.jsx";
 import * as eventApi from "../../hooks/events.js";
+import * as locationsApi from "../../hooks/locations.js";
+import * as gengersApi from "../../hooks/genres.js";
+import * as djsApi from "../../hooks/djs.js";
 
 function CreateEventForm({close}) {
     const {
@@ -15,6 +18,9 @@ function CreateEventForm({close}) {
     } = useForm();
 
     const {createEvent} = eventApi.useCreateEvent();
+    const {result:locationOptions} = locationsApi.useFetchOptions();
+    const {result:genresOptions} = gengersApi.useFetchOptions();
+    const {result:djsOptions} = djsApi.useFetchOptions();
 
     async function handleFormSubmit(data) {
 
@@ -24,26 +30,6 @@ function CreateEventForm({close}) {
             }
         });
     }
-
-    let locationOptions = [
-        {value:"krabbenplas",display:"Krabbenplas, Vlaardingen"}
-        ,{value:"fort-vechten",display:"Fort Vechten, Bunnik"}
-    ]
-        ,genresOptions = [
-        {value:"hardcore",display:"Hardcore"}
-        ,{value:"techno",display:"Techno"}
-        ,{value:"classics",display:"Classics"}
-        ,{value:"house",display:"House"}
-        ,{value:"tech-house",display:"Tech-House"}
-        ,{value:"hardstyle",display:"Hardstyle"}
-        ,{value:"trance",display:"Trance"}
-    ]
-        ,djsOptions = [
-        {value:"potato",display:"Potato"}
-        ,{value:"adjura",display:"Adjura"}
-        ,{value:"charlotte",display:"Charlotte de Witte"}
-        ,{value:"bbjecha",display:"Boris Brejcha"}
-    ];
 
     return (
         <div className="create-event-form-container">
