@@ -10,6 +10,7 @@ import ProfilePage from "./pages/profile/ProfilePage.jsx";
 import SocialPage from "./pages/social/SocialPage.jsx";
 import PageNotFound from "./pages/404/PageNotFound.jsx";
 import PageWrapper from "./components/utils/PageWrapper.jsx";
+import RedirectToNotificationPage from "./pages/notification/RedirectToNotificationPage.jsx";
 
 function App() {
     const [auth, setAuth] =useState(true);
@@ -24,7 +25,7 @@ function App() {
                 <Route element={<PageWrapper authenticateCB={setAuth}/>}>
                     <Route path="/agenda"           element={ auth?<AgendaPage />       :<Navigate to="/login"/>}/>
                     <Route path="/explore"          element={ auth?<ExplorePage />      :<Navigate to="/login"/>}/>
-                    <Route path="/notification"     element={ auth?<NotificationPage /> :<Navigate to="/login"/>}/>
+                    <Route path="/notification"     element={ auth?<RedirectToNotificationPage /> :<Navigate to="/login"/>}/>
                     <Route path="/notification/:id" element={ auth?<NotificationPage /> :<Navigate to="/login"/>}/>
                     <Route path="/profile"          element={ auth?<ProfilePage />      :<Navigate to="/login"/>}/>
                     <Route path="/social"           element={ auth?<SocialPage />       :<Navigate to="/login"/>}/>

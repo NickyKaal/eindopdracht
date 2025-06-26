@@ -1,46 +1,26 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import "./PinnedNotifications.css";
 import {PushPin} from "@phosphor-icons/react";
 import NotificationListItem from "./NotificationListItem.jsx";
 import CollapsibleList from "../../components/utils/CollapsibleList.jsx";
+import * as notificationsApi from "../../hooks/notifications.js";
+import FailedLoadingContent from "../../components/utils/FailedLoadingContent.jsx";
+import LoadingContent from "../../components/utils/LoadingContent.jsx";
 
-import axios from "axios";
 
 function PinnedNotifications() {
 
-    const [data, setData] = React.useState([]);
-
-    async function fetchData() {
-        try {
-            const response = await axios.get('https://novi-backend-api-wgsgz.ondigitalocean.app/api/notifications', {
-                headers: {
-                    'novi-education-project-id': '278d2a09-ef87-4050-9fb8-7b3f26f16604',
-                },
-                params: {
-                    'limit': 10
-                    ,'sort': "-created"
-                    ,"pinned":true
-                    ,"fields":"id,title,subtitle"
-                }
-            });
-            setData(response.data);
-        }
-        catch (e) {
-            console.error(e);
-        }
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const {result:notifications, loaded, failed} = notificationsApi.useFetchNotificationsList({pinned:true});
 
     return (
         <section className="notification-pinned-container">
             <h4 className="allCaps"><PushPin size={32} weight="bold" /> Pinned</h4>
-
-            <CollapsibleList className="list-items-container">
-                {data.map(item =><NotificationListItem key={item.id} item={item}/>)}
-            </CollapsibleList>
+            {loaded === false && <LoadingContent/>}
+            {failed && <FailedLoadingContent/>}
+            {/*TODO: niet alles in 1 keer laden, maar meer laden als lijst wordt open geklapt / naar beneden scrolled*/}
+            {loaded && <CollapsibleList className="list-items-container">
+                {notifications.map(item =><NotificationListItem key={item.id} item={item}/>)}
+            </CollapsibleList>}
         </section>
     );
 }

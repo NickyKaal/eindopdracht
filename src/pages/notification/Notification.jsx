@@ -1,79 +1,17 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import "./Notification.css";
 import Tiptap from "../../components/richTextEditor/Tiptap.jsx";
-import {useNavigate, useParams} from "react-router-dom";
-import axios from "axios";
+import {useParams} from "react-router-dom";
 import CreateNotificationForm from "./CreateNotificationForm.jsx";
 import Overlay from "../../components/utils/Overlay.jsx";
+import * as notificationsApi from "../../hooks/notifications.js";
+import LoadingContent from "../../components/utils/LoadingContent.jsx";
+import FailedLoadingContent from "../../components/utils/FailedLoadingContent.jsx";
 
-function Notification() {
-    async function fetchId() {
-        try {
-
-            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/notifications`, {
-                headers: {
-                    'novi-education-project-id': '278d2a09-ef87-4050-9fb8-7b3f26f16604',
-                },
-                params: {
-                    'limit': 1
-                    , 'sort': "-created"
-                    , "pinned": true
-                    , "fields": "id"
-                }
-            });
-
-            setContentId(response.data[0].id);
-        } catch (e) {
-            console.error(e);
-        }
-    }
-
-    async function fetchData() {
-        try {
-            const response = await axios.get(`https://novi-backend-api-wgsgz.ondigitalocean.app/api/notifications/${id}`, {
-                headers: {
-                    'novi-education-project-id': '278d2a09-ef87-4050-9fb8-7b3f26f16604',
-                },
-                params: {
-                    "fields": "id,content"
-                }
-            });
-
-            setContent(response.data.content);
-        } catch (e) {
-            console.error(e);
-        }
-    }
-
-
+function Notification( ) {
     const { id } = useParams();
+    const {result,loaded,failed} = notificationsApi.useFetchNotification(id);
     const [createNotificationForm, toggleCreateNotificationForm] = React.useState(false);
-    const [content, setContent] = React.useState("");
-    const [contentId, setContentId] = React.useState(id);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if( id ) {
-            fetchData();
-        }
-    }, [id]);
-
-    useEffect(() => {
-
-        if( contentId){
-            navigate(`/notification/${contentId}`, {replace: true})
-        }
-    }, [contentId]);
-
-    useEffect(() => {
-
-        if( id ) {
-            fetchData();
-        }
-        else{
-            fetchId();
-        }
-    }, []);
 
     function toggleForm(){
         toggleCreateNotificationForm(!createNotificationForm);
@@ -87,9 +25,11 @@ function Notification() {
                 <div className="notification-actions">
                     <button type="button" onClick={toggleForm}>create</button>
                 </div>
-                <div className={editable ? "tiptap-wrapper" : "tiptap-wrapper read-only"}>
-                    <Tiptap editable={editable} menu={menu} content={content}/>
-                </div>
+                {loaded === false && <LoadingContent/>}
+                {failed && <FailedLoadingContent/>}
+                {loaded && <div className={editable ? "tiptap-wrapper" : "tiptap-wrapper read-only"}>
+                    <Tiptap editable={editable} menu={menu} content={result.content}/>
+                </div>}
             </section>
         </>);
 }
