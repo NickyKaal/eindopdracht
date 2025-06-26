@@ -8,15 +8,17 @@ export function useFetchEventsList() {
     const [result, setResult] = React.useState([]),
         [ failed, toggleFailed] = React.useState(false),
         [error , setError] = React.useState(""),
-        [loaded, toggleLoaded] = React.useState(false);
+        [loaded, toggleLoaded] = React.useState(false),
+        [filter, setFilter] = React.useState({});
 
+    //TODO: memoization
     async function loadCall(controller){
-        console.log("loadCall");
         try{
             toggleLoaded(false);
             toggleFailed( false);
             setError( "");
             setResult([]);
+
 
             const response = await axios.get(`${BASE_URL}/events`, {
                 headers: {
@@ -44,26 +46,9 @@ export function useFetchEventsList() {
     }
 
     apiUtil.useSafeCall(loadCall);
+    apiUtil.useSafeCall(loadCall,[filter]);
 
-    console.log("build");
-    const reloadWithFilter = useCallback( async(filter)=>{
-        console.log("called reloadWithFilter");
-        const controller = new AbortController();
-
-        console.log("filter",filter);
-
-        loadCall(controller, filter);
-
-
-        return function cleanup() {
-            console.log("called abort");
-            controller.abort();
-        }
-    },[]);
-
-    apiUtil.useSafeCall(reloadWithFilter,[reloadWithFilter]);
-
-    return {result,loaded,failed,error, reload:reloadWithFilter};
+    return {result,loaded,failed,error, setFilter};
 }
 
 export function useFetchEvent(id) {
@@ -171,4 +156,54 @@ export function useFetchFriends(id) {
     apiUtil.useSafeCall(loadCall);
 
     return {result,loaded,failed,error};
+}
+
+export function useCreateEvent() {
+
+
+    const [result, setResult] = React.useState({}),
+        [ failed, toggleFailed] = React.useState(false),
+        [error , setError] = React.useState(""),
+        [executing, toggleExecuting] = React.useState(false);
+
+    async function postCall( data){
+        try{
+            toggleExecuting(true);
+            toggleFailed( false);
+            setError( "");
+            setResult({});
+
+            console.log("create event: ", data);
+            // const response = await axios.post(`${BASE_URL}/events/`, {
+            //     headers: {
+            //         'novi-education-project-id': import.meta.env.VITE_API_KEY,
+            //         signal: controller.signal
+            //     }
+            // });
+
+            setResult({});
+        }
+        catch(err){
+            console.warn(err);
+            toggleFailed( true);
+            setError( err.message);
+        }
+        finally {
+            toggleExecuting(false);
+        }
+    }
+
+    async function createEvent(data,onSucces){
+        try {
+            await postCall(data);
+            onSucces(true);
+        }
+        catch(err){
+            console.warn(err);
+            onSucces(false);
+        }
+    }
+
+
+    return {result, executing,failed,error, createEvent};
 }

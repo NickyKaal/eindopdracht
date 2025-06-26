@@ -1,5 +1,5 @@
 import {SmileyXEyes} from "@phosphor-icons/react";
-import './LoadingContent.css';
+import './FailedLoadingContent.css';
 import React from "react";
 
 function FailedLoadingContent(size=32) {

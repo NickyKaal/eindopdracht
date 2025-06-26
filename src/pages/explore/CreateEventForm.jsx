@@ -3,12 +3,8 @@ import './CreateEventForm.css';
 import Input from "../../components/inputs/Input.jsx";
 import Button from "../../components/buttons/Button.jsx";
 import {useForm} from "react-hook-form";
-import {useNavigate} from "react-router-dom";
-import Checkbox from "../../components/inputs/Checkbox.jsx";
-import Textarea from "../../components/inputs/Textarea.jsx";
-import axios from "axios";
-import Tiptap from "../../components/richTextEditor/Tiptap.jsx";
 import Select from "../../components/inputs/Select.jsx";
+import * as eventApi from "../../hooks/events.js";
 
 function CreateEventForm({close}) {
     const {
@@ -18,30 +14,15 @@ function CreateEventForm({close}) {
         , formState: {errors}
     } = useForm();
 
-    const navigate = useNavigate();
+    const {createEvent} = eventApi.useCreateEvent();
 
-    async function postFormData( data) {
-        console.log(data);
-        return true;
-        /*const {response} = await axios.post('https://novi-backend-api-wgsgz.ondigitalocean.app/api/notifications'
-            ,data
-             ,{
-                headers: {
-                    'Accept': '*!/!*',
-                    'novi-education-project-id': '278d2a09-ef87-4050-9fb8-7b3f26f16604',
-                    'Content-Type':  'application/json'
-                }
+    async function handleFormSubmit(data) {
+
+        await createEvent(data,(succes)=>{
+            if( succes ){
+                close();
             }
-        )
-
-        console.log(response);
-        return response;*/
-    }
-
-    function handleFormSubmit(data, e) {
-
-        postFormData(data);
-        close();
+        });
     }
 
     let locationOptions = [

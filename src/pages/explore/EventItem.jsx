@@ -3,7 +3,7 @@ import './EventItem.css';
 import {formatDate, formatTime} from "../../scripts/helpers/dateUtils.js";
 import LoadingContent from "../../components/utils/LoadingContent.jsx";
 import FriendTile from "../../components/common/FriendTile.jsx";
-import * as eventApi from "../../hooks/eventsApi.js";
+import * as eventApi from "../../hooks/events.js";
 
 function EventItem({item}) {
     const {result:event, loaded:eventLoaded,  failed:eventFailed} = eventApi.useFetchEvent(item.id);

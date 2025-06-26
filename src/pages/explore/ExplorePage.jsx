@@ -2,16 +2,20 @@ import React from 'react';
 import './ExplorePage.css';
 import Searchbar from "./Searchbar.jsx";
 import EventItem from "./EventItem.jsx";
-import * as eventApi from "../../hooks/eventsApi.js";
+import * as eventApi from "../../hooks/events.js";
+import LoadingContent from "../../components/utils/LoadingContent.jsx";
+import FailedLoadingContent from "../../components/utils/FailedLoadingContent.jsx";
 
 function ExplorePage() {
-    const {result, failed,loaded, reload} = eventApi.useFetchEventsList();
+    const {result, failed,loaded, setFilter} = eventApi.useFetchEventsList();
 
     return (
         <main className="page-main-explore">
-            <Searchbar reload={reload}/>
+            <Searchbar setFilter={setFilter}/>
             <section className="result-pane-container">
-                {result.map((item)=><EventItem key={item.id} item={item}/>)}
+                { loaded === false  && <LoadingContent/>}
+                { failed && <FailedLoadingContent/>}
+                {loaded && result.map((item)=><EventItem key={item.id} item={item}/>)}
             </section>
         </main>
     );

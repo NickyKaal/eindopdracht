@@ -6,47 +6,28 @@ import {useForm} from "react-hook-form";
 import Select from "../../components/inputs/Select.jsx";
 import Overlay from "../../components/utils/Overlay.jsx";
 import CreateEventForm from "./CreateEventForm.jsx";
+import * as locationsApi from "../../hooks/locations.js";
+import * as socialApi from "../../hooks/social.js";
+import * as gengersApi from "../../hooks/genres.js";
+import * as djsApi from "../../hooks/djs.js";
 
-function Searchbar({reload}) {
+
+
+function Searchbar({setFilter}) {
     const {reset, register, handleSubmit, formState: {errors}} = useForm();
     const [createEventForm, toggleCreateEventForm] = React.useState(false);
+    const {result:locationOptions} = locationsApi.useFetchOptions();
+    const {result:friendsOptions} = socialApi.useFetchOptions();
+    const {result:genresOptions} = gengersApi.useFetchOptions();
+    const {result:djsOptions} = djsApi.useFetchOptions();
 
     const contentManager = true;
 
     function handleFormSubmit(data, e) {
-        console.log(e.target.value);
-        console.log(e.target.id);
-        console.log(data);
 
-        console.log("Do dummy search");
-        reload({dummy:"test",name:data["search-name"]});
+        setFilter(data);
     }
 
-    let locationOptions = [
-            {value:"krabbenplas",display:"Krabbenplas, Vlaardingen"}
-            ,{value:"fort-vechten",display:"Fort Vechten, Bunnik"}
-        ]
-        ,friendsOptions = [
-            {value:"ppub",display:"Pietje Pub"}
-            ,{value:"bbrouwer",display:"Bob de Brouwer"}
-            ,{value:"fsneus",display:"Fee Sneus"}
-            ,{value:"bgab",display:"Bertje Gab"}
-        ]
-        ,genresOptions = [
-            {value:"hardcore",display:"Hardcore"}
-            ,{value:"techno",display:"Techno"}
-            ,{value:"classics",display:"Classics"}
-            ,{value:"house",display:"House"}
-            ,{value:"tech-house",display:"Tech-House"}
-            ,{value:"hardstyle",display:"Hardstyle"}
-            ,{value:"trance",display:"Trance"}
-        ]
-        ,djsOptions = [
-            {value:"potato",display:"Potato"}
-            ,{value:"adjura",display:"Adjura"}
-            ,{value:"charlotte",display:"Charlotte de Witte"}
-            ,{value:"bbjecha",display:"Boris Brejcha"}
-        ];
 
     function toggleForm(){
         toggleCreateEventForm(!createEventForm);
