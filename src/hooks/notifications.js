@@ -141,7 +141,7 @@ export function useFetchId(){
     return {id:loadID,loaded,failed,error};
 }
 
-export function useCreateEvent() {
+export function useCreateNotification() {
 
 
     const [result, setResult] = React.useState({}),

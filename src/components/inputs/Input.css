@@ -8,6 +8,14 @@
 }
 
 
+.inputField svg{
+    cursor: pointer;
+    position: absolute;
+
+    /* line-height = 1.5 rem, so 0.5/2 = 0.25 */
+    right:0.5rem;
+    bottom:0.75rem;
+}
 
 .inputField input{
     border: solid 0 transparent;

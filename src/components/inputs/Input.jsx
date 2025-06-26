@@ -1,37 +1,15 @@
 import React, {useState} from 'react';
 import './Input.css';
 
-import showContentIcon from '../../assets/icons/eye-open.svg'
-import hideContentIcon from '../../assets/icons/eye-closed.svg'
-
-import Icon from "../common/Icon.jsx";
+import {Eye, EyeClosed} from "@phosphor-icons/react";
 
 
 function Input({register, type, name, label, placeholder ,size}) {
 
     let [contentHidden, setContentHidden] = useState( type === "password");
-
     function handleHideContent(){
         setContentHidden( !contentHidden);
     }
-
-    const iconDefinitionsMap = new Map();
-    iconDefinitionsMap.set(true, {
-        icon:showContentIcon
-        ,name:"showContentIcon"
-        ,alt:"Show content icon"
-        ,inline:true
-        ,onClick:handleHideContent
-    });
-    iconDefinitionsMap.set(false, {
-        icon:hideContentIcon
-        ,name:"hideContentIcon"
-        ,alt:"Hide content icon"
-        ,inline:true
-        ,onClick:handleHideContent
-    });
-
-    const hideIcon = iconDefinitionsMap.get(contentHidden);
 
     return (
         <label className={"inputField" + (size ? " "+Input.size[size]:"")} htmlFor={`${name}-field`}>
@@ -48,7 +26,8 @@ function Input({register, type, name, label, placeholder ,size}) {
                     }
                 })}
             />
-            {type === "password" && <Icon {...hideIcon}/>}
+            {type === "password" && contentHidden && <EyeClosed size={16} onClick={handleHideContent} alt="Show content icon" inline={true}/>}
+            {type === "password" && contentHidden === false && <Eye size={16} onClick={handleHideContent} alt="Hide content icon" inline={true}/>}
         </label>
     );
 }
