@@ -1,17 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import "./LoginTile.css";
 import Input from "../../components/inputs/Input.jsx";
 import {useForm} from "react-hook-form";
 import Button from "../../components/buttons/Button.jsx";
 import {useNavigate} from "react-router-dom";
+import {SubjectContext} from "../../context/SubjectContext.jsx";
 
-function LoginTile({authenticateCB}) {
+function LoginTile() {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const navigate = useNavigate();
+    const {login,authenticate} = useContext(SubjectContext);
 
     function handleFormSubmit(data, e) {
-        authenticateCB(true);
-        navigate("/notification");
+        if( authenticate()){
+            login();
+            navigate("/notification");
+        }
+        else{
+            console.log("Do failed login handling");
+        }
     }
 
     return (

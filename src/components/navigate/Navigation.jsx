@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Navigation.css';
 import {NavLink, useNavigate} from "react-router-dom";
 //TODO: Plaatjes zijn deprecated, vervangen met de nieuwe versie
 import {SignOut, UsersThree, User, Globe, CalendarDots, House} from "@phosphor-icons/react";
 import logo from '../../assets/images/logo.png'
+import {SubjectContext} from "../../context/SubjectContext.jsx";
 
-function Navigation({authenticateCB}) {
+function Navigation() {
     const navigate = useNavigate();
     const iconSize = 48, iconWeight = "bold";
+    const {logoff} = useContext(SubjectContext);
 
     return (
         <>
@@ -46,7 +48,7 @@ function Navigation({authenticateCB}) {
                     </ol>
                 </nav>
                 <NavLink id="logout" className="menu-item" to="/login" onClick={() => {
-                    authenticateCB(false);
+                    logoff();
                     navigate("/login");
                 }}>
                     <SignOut size={iconSize} weight={iconWeight} />

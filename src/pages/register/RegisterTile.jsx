@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import "./RegisterTile.css";
 
 import Input from "../../components/inputs/Input.jsx";
@@ -6,22 +6,21 @@ import {useForm} from "react-hook-form";
 import Button from "../../components/buttons/Button.jsx";
 import Radio from "../../components/inputs/Radio.jsx";
 import {useNavigate} from "react-router-dom";
+import {SubjectContext} from "../../context/SubjectContext.jsx";
 
-function RegisterTile({authenticateCB}) {
+function RegisterTile() {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const navigate = useNavigate();
+    const {register:registerSubject} = useContext(SubjectContext);
 
     function handleFormSubmit(data, e) {
-        console.log(e.target.value);
-        console.log(e.target.id);
 
-        console.log(data);
+        console.log("Do dummy register");
+        if (registerSubject(data)) {
 
-        console.log("Do dummy login");
-        authenticateCB(true);
-
-        console.log("Redirecting..");
-        navigate("/notification");
+            console.log("Redirecting..");
+            navigate("/notification");
+        }
     }
 
     return (
