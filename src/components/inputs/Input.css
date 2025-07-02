@@ -1,6 +1,6 @@
 
-.inputField {
-    position:relative;
+.input-field {
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -8,31 +8,31 @@
 }
 
 
-.inputField svg{
+.input-field svg {
     cursor: pointer;
     position: absolute;
 
     /* line-height = 1.5 rem, so 0.5/2 = 0.25 */
-    right:0.5rem;
-    bottom:0.75rem;
+    right: 0.5rem;
+    bottom: 0.75rem;
 }
 
-.inputField input{
+.input-field input {
     border: solid 0 transparent;
     border-radius: 5px;
 
-    padding:0.25rem 0 0.25rem 0.25rem;
+    padding: 0.25rem 0 0.25rem 0.25rem;
 
 }
 
-.inputField.small{
+.input-field.small {
     width: 100px;
 }
 
-.inputField.medium{
+.input-field.medium {
     width: 200px;
 }
 
-.inputField.large{
+.input-field.large {
     width: 400px;
 }

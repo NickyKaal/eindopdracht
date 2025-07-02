@@ -5,7 +5,7 @@ function Radio({register, radioSet, name, groupName}) {
 
     return <>
         <label>{groupName}</label>
-        <div className="radioSetWrapper">
+        <div className="radioset-wrapper">
             {radioSet.map((radio) => {
                 return <label key={`radio-${radio.value}`} className={`label-${name}`}>
                     <input

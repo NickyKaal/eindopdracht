@@ -1,34 +1,34 @@
-.event-container{
+.event-container {
     display: flex;
 
-    width:90%;
+    width: 90%;
     flex-grow: 0;
     align-items: stretch;
     overflow: hidden;
-    padding:1rem;
+    padding: 1rem;
 }
 
 .friends-going-container,
 .event-details-container,
-.event-image-container{
-    width:33%;
+.event-image-container {
+    width: 33%;
     height: 250px;
-    margin:0 4px;
+    margin: 0 4px;
 }
 
-.event-details-container{
+.event-details-container {
     border-right: 1px solid var(--unfocused);
     border-left: 1px solid var(--unfocused);
 }
 
-.event-image-container img{
+.event-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 .friends-going-container,
-.event-details-container{
+.event-details-container {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -38,17 +38,17 @@
 }
 
 .friends-list-container,
-.details-container{
-     display: flex;
-     flex-direction: column;
-     align-items: start;
-     padding-left: 1rem;
-     justify-content: space-between;
-     row-gap: 1rem;
- }
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 1rem;
+    justify-content: space-between;
+    row-gap: 1rem;
+}
 
 
 .friends-going-container h4,
-.event-details-container h4{
-    color:var(--secondary);
+.event-details-container h4 {
+    color: var(--secondary);
 }

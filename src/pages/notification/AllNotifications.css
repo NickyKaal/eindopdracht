@@ -1,15 +1,15 @@
-.notification-all-container h4{
+.notification-all-container h4 {
     color: var(--unfocused);
-    display:flex;
+    display: flex;
     column-gap: 0.5rem;
     padding: 2rem 0 0;
 }
 
-.notification-all-container h4 svg{
+.notification-all-container h4 svg {
     transform: rotate(45deg);
 }
 
-.list-items-container{
+.list-items-container {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;

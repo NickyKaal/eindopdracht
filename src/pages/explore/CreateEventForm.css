@@ -1,28 +1,28 @@
-.create-event-form-container{
+.create-event-form-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 }
 
-.create-event-form-container form{
+.create-event-form-container form {
     position: relative;
     display: flex;
     flex-direction: column;
-    width:800px;
+    width: 800px;
 }
 
-.create-event-form-container form #close{
+.create-event-form-container form #close {
     position: absolute;
     right: 0;
     top: 0;
 }
 
 .create-event-form-container form .button-wrapper {
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     row-gap: 1rem;
-    padding:1rem 0;
+    padding: 1rem 0;
 }

@@ -6,7 +6,7 @@ import './Checkbox.css';
 function Checkbox({register,  name, label}) {
 
     return (
-        <label className="inputCheckbox" htmlFor={`${name}-field`}>
+        <label className="input-checkbox" htmlFor={`${name}-field`}>
             <input
                 type="checkbox"
                 id={`${name}-field`}

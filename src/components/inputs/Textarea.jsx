@@ -5,7 +5,7 @@ import './Textarea.css';
 function Textarea({register,  name, label, rows}) {
 
     return (
-        <label className="inputTextarea" htmlFor={`${name}-field`}>
+        <label className="input-textarea" htmlFor={`${name}-field`}>
             {label}
             <textarea
                 id={`${name}-field`}

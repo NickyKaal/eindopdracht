@@ -7,7 +7,7 @@ function Select({register,  name, label, options, size, SO = SelectOption}) {
     const MySelectOption = SO; //TODO: teveel werk voor nu, maar voor bv dj's en gebruikers de avatar in de optie opnemen naast de naam via SO
 
     return (
-        <label className={"inputSelect"+ (size ? " "+Select.size[size]:"")} htmlFor={`${name}-field`}>
+        <label className={"input-select"+ (size ? " "+Select.size[size]:"")} htmlFor={`${name}-field`}>
             {label}
             <select {...register(name, {
                 required: {

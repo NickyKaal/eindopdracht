@@ -3,7 +3,7 @@ import './NamedBanner.css';
 
 function NameBanner() {
     return (
-        <p className="nameBanner">
+        <p className="name-banner">
             <span>Festival</span>
             <span>&</span>
             <span>Friends</span>

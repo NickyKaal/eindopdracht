@@ -1,13 +1,13 @@
-button{
+button {
     cursor: pointer;
 }
 
 button:hover {
-    color:var(--highlight);
+    color: var(--highlight);
 }
 
 .button-primary {
-    border:none 0 transparent;
+    border: none 0 transparent;
     border-radius: 20px;
 
     background-color: var(--primary);
@@ -15,19 +15,19 @@ button:hover {
 }
 
 .button-secondary {
-    border:none 0 transparent;
+    border: none 0 transparent;
     border-radius: 20px;
     background-color: var(--secondary);
-    color:var(--panel-background);
+    color: var(--panel-background);
 }
 
 
-.buttonSizeMedium{
+.buttonSizeMedium {
     flex-basis: 200px;
     width: 200px;
 }
 
-.buttonSizeSmall{
+.buttonSizeSmall {
     flex-basis: 100px;
     font-size: 1rem;
 }

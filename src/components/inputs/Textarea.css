@@ -1,4 +1,4 @@
-.inputTextarea {
+.input-textarea {
     display: flex;
     flex-direction: column;
     padding: 0.2rem 0;
@@ -6,11 +6,11 @@
 
 }
 
-.inputTextarea textarea{
+.input-textarea textarea {
     resize: none;
-    overflow:hidden;
+    overflow: hidden;
     border: solid 0 transparent;
     border-radius: 5px;
 
-    padding:0 0 0 0.25rem;
+    padding: 0 0 0 0.25rem;
 }

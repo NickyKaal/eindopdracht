@@ -12,7 +12,7 @@ function Input({register, type, name, label, placeholder ,size}) {
     }
 
     return (
-        <label className={"inputField" + (size ? " "+Input.size[size]:"")} htmlFor={`${name}-field`}>
+        <label className={"input-field" + (size ? " "+Input.size[size]:"")} htmlFor={`${name}-field`}>
             {label}
             <input
                 type={type !== "password" ?type:(contentHidden?type:"text")}

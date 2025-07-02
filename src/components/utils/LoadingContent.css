@@ -1,4 +1,4 @@
-.loading-content{
+.loading-content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,15 +7,19 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% {  transform: rotate(359deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
 }
 
-.loading-content svg{
+.loading-content svg {
     width: 100%;
     max-width: 100px;
     height: 100%;
     max-height: 100px;
 
-    animation: spin calc(60s/78) linear infinite; /*LP op 78 rpm :P */
+    animation: spin calc(60s / 78) linear infinite; /*LP op 78 rpm :P */
 }

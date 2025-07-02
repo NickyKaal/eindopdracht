@@ -1,16 +1,16 @@
-.list-item-container{
+.list-item-container {
     margin-top: 1rem;
-    padding:0.5rem 1rem;
+    padding: 0.5rem 1rem;
 }
 
 
-.list-item-container .item-title-wrapper{
-    display:flex;
+.list-item-container .item-title-wrapper {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px dotted var(--divider);
 }
 
-.list-item-container .item-title-wrapper .item-date{
+.list-item-container .item-title-wrapper .item-date {
     font-weight: bold;
 }
