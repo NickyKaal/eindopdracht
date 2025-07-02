@@ -3,14 +3,14 @@ import "./PinnedNotifications.css";
 import {PushPin} from "@phosphor-icons/react";
 import NotificationListItem from "./NotificationListItem.jsx";
 import CollapsibleList from "../../components/utils/CollapsibleList.jsx";
-import * as notificationsApi from "../../hooks/notifications.js";
+import {useFetchNotificationsList} from "../../hooks/notifications.js";
 import FailedLoadingContent from "../../components/utils/FailedLoadingContent.jsx";
 import LoadingContent from "../../components/utils/LoadingContent.jsx";
 
 
 function PinnedNotifications() {
 
-    const {result:notifications, loaded, failed} = notificationsApi.useFetchNotificationsList({pinned:true});
+    const {result:notifications, loaded, failed} = useFetchNotificationsList({pinned:true});
 
     return (
         <section className="notification-pinned-container">

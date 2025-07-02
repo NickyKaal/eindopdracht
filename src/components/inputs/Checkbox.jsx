@@ -1,8 +1,6 @@
 import React from 'react';
 import './Checkbox.css';
 
-
-
 function Checkbox({register,  name, label}) {
 
     return (

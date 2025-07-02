@@ -1,6 +1,5 @@
 import React from 'react';
 import './ProfilePage.css';
-import Navigation from "../../components/navigate/Navigation.jsx";
 
 function ProfilePage({authenticateCB}) {
     return (

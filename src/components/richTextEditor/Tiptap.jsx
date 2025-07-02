@@ -1,10 +1,9 @@
 import './Tiptap.css';
 
-
 import {EditorContent, useEditor, BubbleMenu} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import React, {useEffect,useRef} from 'react'
-import {Editor} from "@tiptap/react";
+import React, {useEffect} from 'react'
+
 import {
     ArrowClockwise,
     ArrowCounterClockwise,
@@ -17,8 +16,6 @@ import {
     TextItalic,
     TextStrikethrough
 } from "@phosphor-icons/react";
-
-
 
 const Menu = function Menu({ editor }){
     if (!editor) {

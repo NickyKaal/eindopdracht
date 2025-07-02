@@ -1,17 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Notification.css";
 import Tiptap from "../../components/richTextEditor/Tiptap.jsx";
 import {useParams} from "react-router-dom";
 import CreateNotificationForm from "./CreateNotificationForm.jsx";
 import Overlay from "../../components/utils/Overlay.jsx";
-import * as notificationsApi from "../../hooks/notifications.js";
+import {useFetchNotification} from "../../hooks/notifications.js";
 import LoadingContent from "../../components/utils/LoadingContent.jsx";
 import FailedLoadingContent from "../../components/utils/FailedLoadingContent.jsx";
 
 function Notification( ) {
     const { id } = useParams();
-    const {result,loaded,failed} = notificationsApi.useFetchNotification(id);
-    const [createNotificationForm, toggleCreateNotificationForm] = React.useState(false);
+    const {result,loaded,failed} = useFetchNotification(id);
+    const [createNotificationForm, toggleCreateNotificationForm] = useState(false);
 
     function toggleForm(){
         toggleCreateNotificationForm(!createNotificationForm);

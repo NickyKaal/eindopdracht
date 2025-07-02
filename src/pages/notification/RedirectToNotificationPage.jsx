@@ -1,9 +1,9 @@
 import React from 'react';
-import * as notificationsApi from "../../hooks/notifications.js";
+import {useFetchId} from "../../hooks/notifications.js";
 import {Navigate} from "react-router-dom";
 
-function RedirectToNotificationPage(props) {
-    const {id, loaded} = notificationsApi.useFetchId( );
+function RedirectToNotificationPage() {
+    const {id, loaded} = useFetchId( );
 
     return (
         <>

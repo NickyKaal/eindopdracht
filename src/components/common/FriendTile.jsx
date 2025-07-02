@@ -2,7 +2,6 @@ import React from 'react';
 import './FriendTile.css';
 import {UserCircle} from "@phosphor-icons/react";
 
-
 function FriendTile({friend}) {
 
     return (

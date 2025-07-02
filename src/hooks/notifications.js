@@ -1,15 +1,14 @@
 import axios from "axios";
-import React, {useCallback, useEffect} from "react";
-import * as apiUtil from "./util/apiUtils.js";
-import {useNavigate, useParams} from "react-router-dom";
+import {useCallback, useState} from "react";
+import {useSafeCall} from "./util/apiUtils.js";
 const BASE_URL = "https://novi-backend-api-wgsgz.ondigitalocean.app/api";
 
 export function useFetchNotificationsList(filter = {}) {
 
-    const [result, setResult] = React.useState([]),
-        [ failed, toggleFailed] = React.useState(false),
-        [error , setError] = React.useState(""),
-        [loaded, toggleLoaded] = React.useState(false)
+    const [result, setResult] = useState([]),
+        [ failed, toggleFailed] = useState(false),
+        [error , setError] = useState(""),
+        [loaded, toggleLoaded] = useState(false)
 
     //TODO: memoization, DRY
     async function loadCall(controller){
@@ -45,17 +44,17 @@ export function useFetchNotificationsList(filter = {}) {
         }
     }
 
-    apiUtil.useSafeCall(loadCall);
+    useSafeCall(loadCall);
 
     return {result,loaded,failed,error};
 }
 
 export function useFetchNotification(id) {
 
-    const [result, setResult] = React.useState({}),
-        [ failed, toggleFailed] = React.useState(false),
-        [error , setError] = React.useState(""),
-        [loaded, toggleLoaded] = React.useState(false);
+    const [result, setResult] = useState({}),
+        [ failed, toggleFailed] = useState(false),
+        [error , setError] = useState(""),
+        [loaded, toggleLoaded] = useState(false);
 
     async function loadCall(controller){
         try{
@@ -91,17 +90,17 @@ export function useFetchNotification(id) {
         loadCall(controller);
     },[id]);
 
-    apiUtil.useSafeCall(handleLoad,[handleLoad]);
+    useSafeCall(handleLoad,[handleLoad]);
 
     return {result,loaded,failed,error};
 }
 
 export function useFetchId(){
 
-    const [loadID, setLoadID] = React.useState(0),
-        [ failed, toggleFailed] = React.useState(false),
-        [error , setError] = React.useState(""),
-        [loaded, toggleLoaded] = React.useState(false);
+    const [loadID, setLoadID] = useState(0),
+        [ failed, toggleFailed] = useState(false),
+        [error , setError] = useState(""),
+        [loaded, toggleLoaded] = useState(false);
 
     async function loadCall(controller){
 
@@ -136,7 +135,7 @@ export function useFetchId(){
         }
     }
 
-    apiUtil.useSafeCall(loadCall);
+    useSafeCall(loadCall);
 
     return {id:loadID,loaded,failed,error};
 }
@@ -144,10 +143,10 @@ export function useFetchId(){
 export function useCreateNotification() {
 
 
-    const [result, setResult] = React.useState({}),
-        [ failed, toggleFailed] = React.useState(false),
-        [error , setError] = React.useState(""),
-        [executing, toggleExecuting] = React.useState(false);
+    const [result, setResult] = useState({}),
+        [ failed, toggleFailed] = useState(false),
+        [error , setError] = useState(""),
+        [executing, toggleExecuting] = useState(false);
 
     async function postCall( data){
         try{

@@ -3,15 +3,13 @@ import "./AllNotifications.css"
 import {MapPin} from "@phosphor-icons/react";
 import NotificationListItem from "./NotificationListItem.jsx";
 import CollapsibleList from "../../components/utils/CollapsibleList.jsx";
-import * as notificationsApi from "../../hooks/notifications.js";
 import LoadingContent from "../../components/utils/LoadingContent.jsx";
 import FailedLoadingContent from "../../components/utils/FailedLoadingContent.jsx";
+import {useFetchNotificationsList} from "../../hooks/notifications.js";
 
 function AllNotifications() {
 
-
-    const {result:notifications, loaded, failed} = notificationsApi.useFetchNotificationsList();
-
+    const {result:notifications, loaded, failed} = useFetchNotificationsList();
 
     return (
         <section className="notification-all-container">

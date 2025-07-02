@@ -1,6 +1,5 @@
 import React from 'react';
 import './AgendaPage.css';
-import Navigation from "../../components/navigate/Navigation.jsx";
 
 function AgendaPage({authenticateCB}) {
     return (

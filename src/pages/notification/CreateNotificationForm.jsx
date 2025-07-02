@@ -3,10 +3,8 @@ import './CreateNotificationForm.css';
 import Input from "../../components/inputs/Input.jsx";
 import Button from "../../components/buttons/Button.jsx";
 import {useForm} from "react-hook-form";
-import {useNavigate} from "react-router-dom";
 import Checkbox from "../../components/inputs/Checkbox.jsx";
 import Textarea from "../../components/inputs/Textarea.jsx";
-import axios from "axios";
 import Tiptap from "../../components/richTextEditor/Tiptap.jsx";
 
 function CreateNotificationForm({close}) {
@@ -16,8 +14,6 @@ function CreateNotificationForm({close}) {
         , handleSubmit
         , formState: {errors}
     } = useForm();
-
-    const navigate = useNavigate();
 
     async function postFormData( data) {
         console.log(data);

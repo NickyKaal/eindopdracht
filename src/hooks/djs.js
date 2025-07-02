@@ -1,14 +1,14 @@
 import axios from "axios";
-import React, {useCallback, useEffect} from "react";
-import * as apiUtil from "./util/apiUtils.js";
+import {useState} from "react";
+import {useSafeCall} from "./util/apiUtils.js";
 const BASE_URL = "https://novi-backend-api-wgsgz.ondigitalocean.app/api";
 
 export function useFetchOptions() {
 
-    const [result, setResult] = React.useState([]),
-        [ failed, toggleFailed] = React.useState(false),
-        [error , setError] = React.useState(""),
-        [loaded, toggleLoaded] = React.useState(false);
+    const [result, setResult] = useState([]),
+        [ failed, toggleFailed] = useState(false),
+        [error , setError] = useState(""),
+        [loaded, toggleLoaded] = useState(false);
 
     //TODO: memoization
     async function loadCall(controller){
@@ -50,7 +50,7 @@ export function useFetchOptions() {
         }
     }
 
-    apiUtil.useSafeCall(loadCall);
+    useSafeCall(loadCall);
 
     return {result,loaded,failed,error};
 }

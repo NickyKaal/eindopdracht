@@ -2,12 +2,12 @@ import React from 'react';
 import './ExplorePage.css';
 import Searchbar from "./Searchbar.jsx";
 import EventItem from "./EventItem.jsx";
-import * as eventApi from "../../hooks/events.js";
 import LoadingContent from "../../components/utils/LoadingContent.jsx";
 import FailedLoadingContent from "../../components/utils/FailedLoadingContent.jsx";
+import {useFetchEventsList} from "../../hooks/events.js";
 
 function ExplorePage() {
-    const {result, failed,loaded, setFilter} = eventApi.useFetchEventsList();
+    const {result, failed,loaded, setFilter} = useFetchEventsList();
 
     return (
         <main className="page-main-explore">

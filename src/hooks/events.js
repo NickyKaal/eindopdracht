@@ -1,15 +1,15 @@
 import axios from "axios";
-import React, {useCallback, useEffect} from "react";
-import * as apiUtil from "./util/apiUtils.js";
+import {useState} from "react";
+import {useSafeCall} from "./util/apiUtils.js";
 const BASE_URL = "https://novi-backend-api-wgsgz.ondigitalocean.app/api";
 
 export function useFetchEventsList() {
 
-    const [result, setResult] = React.useState([]),
-        [ failed, toggleFailed] = React.useState(false),
-        [error , setError] = React.useState(""),
-        [loaded, toggleLoaded] = React.useState(false),
-        [filter, setFilter] = React.useState({});
+    const [result, setResult] = useState([]),
+        [ failed, toggleFailed] = useState(false),
+        [error , setError] = useState(""),
+        [loaded, toggleLoaded] = useState(false),
+        [filter, setFilter] = useState({});
 
     //TODO: memoization
     async function loadCall(controller){
@@ -45,18 +45,18 @@ export function useFetchEventsList() {
         }
     }
 
-    apiUtil.useSafeCall(loadCall);
-    apiUtil.useSafeCall(loadCall,[filter]);
+    useSafeCall(loadCall);
+    useSafeCall(loadCall,[filter]);
 
     return {result,loaded,failed,error, setFilter};
 }
 
 export function useFetchEvent(id) {
 
-    const [result, setResult] = React.useState({}),
-        [ failed, toggleFailed] = React.useState(false),
-        [error , setError] = React.useState(""),
-        [loaded, toggleLoaded] = React.useState(false);
+    const [result, setResult] = useState({}),
+        [ failed, toggleFailed] = useState(false),
+        [error , setError] = useState(""),
+        [loaded, toggleLoaded] = useState(false);
 
     async function loadCall(controller){
         try{
@@ -92,17 +92,17 @@ export function useFetchEvent(id) {
         }
     }
 
-    apiUtil.useSafeCall(loadCall);
+    useSafeCall(loadCall);
 
     return {result,loaded,failed,error};
 }
 
 export function useFetchFriends(id) {
 
-    const [result, setResult] = React.useState({}),
-        [ failed, toggleFailed] = React.useState(false),
-        [error , setError] = React.useState(""),
-        [loaded, toggleLoaded] = React.useState(false);
+    const [result, setResult] = useState({}),
+        [ failed, toggleFailed] = useState(false),
+        [error , setError] = useState(""),
+        [loaded, toggleLoaded] = useState(false);
 
     async function loadCall(controller){
         try{
@@ -153,7 +153,7 @@ export function useFetchFriends(id) {
         }
     }
 
-    apiUtil.useSafeCall(loadCall);
+    useSafeCall(loadCall);
 
     return {result,loaded,failed,error};
 }
@@ -161,10 +161,10 @@ export function useFetchFriends(id) {
 export function useCreateEvent() {
 
 
-    const [result, setResult] = React.useState({}),
-        [ failed, toggleFailed] = React.useState(false),
-        [error , setError] = React.useState(""),
-        [executing, toggleExecuting] = React.useState(false);
+    const [result, setResult] = useState({}),
+        [ failed, toggleFailed] = useState(false),
+        [error , setError] = useState(""),
+        [executing, toggleExecuting] = useState(false);
 
     async function postCall( data){
         try{
