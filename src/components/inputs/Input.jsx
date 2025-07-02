@@ -23,8 +23,8 @@ function Input({register, type, name, label, placeholder ,size}) {
                     }
                 })}
             />
-            {type === "password" && contentHidden && <EyeClosed size={16} onClick={handleHideContent} alt="Show content icon" inline={true}/>}
-            {type === "password" && contentHidden === false && <Eye size={16} onClick={handleHideContent} alt="Hide content icon" inline={true}/>}
+            {type === "password" && contentHidden && <EyeClosed size={16} onClick={handleHideContent} alt="Show content icon" />}
+            {type === "password" && contentHidden === false && <Eye size={16} onClick={handleHideContent} alt="Hide content icon" />}
         </label>
     );
 }
