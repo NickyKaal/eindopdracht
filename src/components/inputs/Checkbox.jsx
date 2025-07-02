@@ -2,7 +2,6 @@ import React from 'react';
 import './Checkbox.css';
 
 function Checkbox({register,  name, label}) {
-
     return (
         <label className="input-checkbox" htmlFor={`${name}-field`}>
             <input
@@ -19,6 +18,5 @@ function Checkbox({register,  name, label}) {
         </label>
     );
 }
-
 
 export default Checkbox;

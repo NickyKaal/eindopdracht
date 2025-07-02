@@ -3,7 +3,6 @@ import NameBanner from "../../components/header/NameBanner.jsx";
 import LoginTile from "./LoginTile.jsx";
 
 function LoginPage({authenticateCB}) {
-
     return (
         <>
             <header className="page-header">

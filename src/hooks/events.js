@@ -4,7 +4,6 @@ import {useSafeCall} from "./util/apiUtils.js";
 const BASE_URL = "https://novi-backend-api-wgsgz.ondigitalocean.app/api";
 
 export function useFetchEventsList() {
-
     const [result, setResult] = useState([]),
         [ failed, toggleFailed] = useState(false),
         [error , setError] = useState(""),
@@ -18,7 +17,6 @@ export function useFetchEventsList() {
             toggleFailed( false);
             setError( "");
             setResult([]);
-
 
             const response = await axios.get(`${BASE_URL}/events`, {
                 headers: {
@@ -52,7 +50,6 @@ export function useFetchEventsList() {
 }
 
 export function useFetchEvent(id) {
-
     const [result, setResult] = useState({}),
         [ failed, toggleFailed] = useState(false),
         [error , setError] = useState(""),
@@ -98,7 +95,6 @@ export function useFetchEvent(id) {
 }
 
 export function useFetchFriends(id) {
-
     const [result, setResult] = useState({}),
         [ failed, toggleFailed] = useState(false),
         [error , setError] = useState(""),
@@ -159,8 +155,6 @@ export function useFetchFriends(id) {
 }
 
 export function useCreateEvent() {
-
-
     const [result, setResult] = useState({}),
         [ failed, toggleFailed] = useState(false),
         [error , setError] = useState(""),
@@ -203,7 +197,6 @@ export function useCreateEvent() {
             onSucces(false);
         }
     }
-
 
     return {result, executing,failed,error, createEvent};
 }

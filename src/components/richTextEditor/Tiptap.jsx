@@ -1,5 +1,4 @@
 import './Tiptap.css';
-
 import {EditorContent, useEditor, BubbleMenu} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import React, {useEffect} from 'react'
@@ -125,7 +124,6 @@ function Tiptap({content/*="<p>edit</p>"*/, editable=true,menu=true, rhf ,name})
     useEffect(() => {
         editor.commands.setContent(content);
     }, [content]);
-
 
     useEffect(() => {
         rhf?.register(name, {

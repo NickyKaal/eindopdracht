@@ -1,9 +1,7 @@
 import React from 'react';
 import './Textarea.css';
 
-
 function Textarea({register,  name, label, rows}) {
-
     return (
         <label className="input-textarea" htmlFor={`${name}-field`}>
             {label}
@@ -20,6 +18,5 @@ function Textarea({register,  name, label, rows}) {
         </label>
     );
 }
-
 
 export default Textarea;

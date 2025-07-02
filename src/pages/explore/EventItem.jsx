@@ -5,7 +5,6 @@ import LoadingContent from "../../components/utils/LoadingContent.jsx";
 import FriendTile from "../../components/common/FriendTile.jsx";
 import {useFetchEvent, useFetchFriends} from "../../hooks/events.js";
 
-
 function EventItem({item}) {
     const {result:event, loaded:eventLoaded,  failed:eventFailed} = useFetchEvent(item.id);
     const {result:friendList, loaded:friendListLoaded,  failed:friendListFailed} = useFetchFriends(item.id)

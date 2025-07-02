@@ -3,7 +3,6 @@ import "./CollapsibleList.css";
 import {CaretCircleDown, CaretCircleUp} from "@phosphor-icons/react";
 
 function CollapsibleList({className, children}) {
-
     const [expanded, toggleExpanded] = React.useState(false);
 
     return (

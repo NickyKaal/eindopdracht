@@ -23,7 +23,6 @@ function CreateEventForm({close}) {
     const {result:djsOptions} = djsApi.useFetchOptions();
 
     async function handleFormSubmit(data) {
-
         await createEvent(data,(succes)=>{
             if( succes ){
                 close();

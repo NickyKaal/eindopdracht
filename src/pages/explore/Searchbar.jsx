@@ -11,8 +11,6 @@ import * as socialApi from "../../hooks/social.js";
 import * as gengersApi from "../../hooks/genres.js";
 import * as djsApi from "../../hooks/djs.js";
 
-
-
 function Searchbar({setFilter}) {
     const {reset, register, handleSubmit, formState: {errors}} = useForm();
     const [createEventForm, toggleCreateEventForm] = React.useState(false);
@@ -24,10 +22,8 @@ function Searchbar({setFilter}) {
     const contentManager = true;
 
     function handleFormSubmit(data, e) {
-
         setFilter(data);
     }
-
 
     function toggleForm(){
         toggleCreateEventForm(!createEventForm);

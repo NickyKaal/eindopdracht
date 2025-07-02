@@ -34,7 +34,6 @@ function CreateNotificationForm({close}) {
     }
 
     function handleFormSubmit(data, e) {
-
         postFormData(data);
         close();
     }

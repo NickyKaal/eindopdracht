@@ -1,7 +1,6 @@
 import React from 'react';
 import './Navigation.css';
 import {NavLink, useNavigate} from "react-router-dom";
-
 //TODO: Plaatjes zijn deprecated, vervangen met de nieuwe versie
 import {SignOut, UsersThree, User, Globe, CalendarDots, House} from "@phosphor-icons/react";
 import logo from '../../assets/images/logo.png'

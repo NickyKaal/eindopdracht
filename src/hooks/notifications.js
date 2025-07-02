@@ -4,7 +4,6 @@ import {useSafeCall} from "./util/apiUtils.js";
 const BASE_URL = "https://novi-backend-api-wgsgz.ondigitalocean.app/api";
 
 export function useFetchNotificationsList(filter = {}) {
-
     const [result, setResult] = useState([]),
         [ failed, toggleFailed] = useState(false),
         [error , setError] = useState(""),
@@ -50,7 +49,6 @@ export function useFetchNotificationsList(filter = {}) {
 }
 
 export function useFetchNotification(id) {
-
     const [result, setResult] = useState({}),
         [ failed, toggleFailed] = useState(false),
         [error , setError] = useState(""),
@@ -62,7 +60,6 @@ export function useFetchNotification(id) {
             toggleFailed( false);
             setError( "");
             setResult({});
-
 
             const response = await axios.get(`${BASE_URL}/notifications/${id}`, {
                 headers: {
@@ -96,7 +93,6 @@ export function useFetchNotification(id) {
 }
 
 export function useFetchId(){
-
     const [loadID, setLoadID] = useState(0),
         [ failed, toggleFailed] = useState(false),
         [error , setError] = useState(""),
@@ -141,8 +137,6 @@ export function useFetchId(){
 }
 
 export function useCreateNotification() {
-
-
     const [result, setResult] = useState({}),
         [ failed, toggleFailed] = useState(false),
         [error , setError] = useState(""),

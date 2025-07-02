@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
 import './Input.css';
-
 import {Eye, EyeClosed} from "@phosphor-icons/react";
 
 function Input({register, type, name, label, placeholder ,size}) {
-
     let [contentHidden, setContentHidden] = useState( type === "password");
     function handleHideContent(){
         setContentHidden( !contentHidden);

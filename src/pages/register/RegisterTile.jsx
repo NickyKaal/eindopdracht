@@ -9,7 +9,6 @@ import {useNavigate} from "react-router-dom";
 
 function RegisterTile({authenticateCB}) {
     const {register, handleSubmit, formState: {errors}} = useForm();
-
     const navigate = useNavigate();
 
     function handleFormSubmit(data, e) {

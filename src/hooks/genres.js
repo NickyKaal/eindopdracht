@@ -4,7 +4,6 @@ import {useSafeCall} from "./util/apiUtils.js";
 const BASE_URL = "https://novi-backend-api-wgsgz.ondigitalocean.app/api";
 
 export function useFetchOptions() {
-
     const [result, setResult] = useState([]),
         [ failed, toggleFailed] = useState(false),
         [error , setError] = useState(""),

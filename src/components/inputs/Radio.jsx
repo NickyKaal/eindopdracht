@@ -2,7 +2,6 @@ import React from 'react';
 import './Radio.css';
 
 function Radio({register, radioSet, name, groupName}) {
-
     return <>
         <label>{groupName}</label>
         <div className="radioset-wrapper">
@@ -23,7 +22,6 @@ function Radio({register, radioSet, name, groupName}) {
             })}
         </div>
     </>;
-
 }
 
 export default Radio;

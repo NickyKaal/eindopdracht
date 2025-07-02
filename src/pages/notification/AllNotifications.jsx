@@ -8,7 +8,6 @@ import FailedLoadingContent from "../../components/utils/FailedLoadingContent.js
 import {useFetchNotificationsList} from "../../hooks/notifications.js";
 
 function AllNotifications() {
-
     const {result:notifications, loaded, failed} = useFetchNotificationsList();
 
     return (

@@ -2,7 +2,6 @@ import React from 'react';
 import './Select.css';
 import SelectOption from "./SelectOption.jsx";
 
-
 function Select({register,  name, label, options, size, SO = SelectOption}) {
     const MySelectOption = SO; //TODO: teveel werk voor nu, maar voor bv dj's en gebruikers de avatar in de optie opnemen naast de naam via SO
 

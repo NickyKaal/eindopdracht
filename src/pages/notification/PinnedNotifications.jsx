@@ -7,9 +7,7 @@ import {useFetchNotificationsList} from "../../hooks/notifications.js";
 import FailedLoadingContent from "../../components/utils/FailedLoadingContent.jsx";
 import LoadingContent from "../../components/utils/LoadingContent.jsx";
 
-
 function PinnedNotifications() {
-
     const {result:notifications, loaded, failed} = useFetchNotificationsList({pinned:true});
 
     return (
